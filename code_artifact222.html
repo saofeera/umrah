@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>คู่มือนำทางทำอุมเราะห์ตามแบบฉบับซุนนะห์</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Prompt (Thai) & Amiri / Noto Naskh Arabic (Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'sans-serif'],
+            arabic: ['Noto Naskh Arabic', 'Amiri', 'serif']
+          },
+          colors: {
+            emerald: {
+              850: '#044e3a',
+              950: '#022c22'
+            },
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Styling & Islamic Geometric Subtle Pattern */
+    body {
+      font-family: 'Prompt', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .arabic-text {
+      font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+      line-height: 2.1;
+      direction: rtl;
+    }
+
+    /* Dynamic Font Scaling Classes controlled via JS */
+    .scale-sm .dua-arabic { font-size: 1.35rem; line-height: 2.2rem; }
+    .scale-sm .dua-phonetic { font-size: 0.9rem; }
+    .scale-sm .dua-meaning { font-size: 0.85rem; }
+
+    .scale-md .dua-arabic { font-size: 1.65rem; line-height: 2.75rem; }
+    .scale-md .dua-phonetic { font-size: 1.02rem; }
+    .scale-md .dua-meaning { font-size: 0.95rem; }
+
+    .scale-lg .dua-arabic { font-size: 2.05rem; line-height: 3.35rem; }
+    .scale-lg .dua-phonetic { font-size: 1.15rem; }
+    .scale-lg .dua-meaning { font-size: 1.05rem; }
+
+    .scale-xl .dua-arabic { font-size: 2.45rem; line-height: 3.9rem; }
+    .scale-xl .dua-phonetic { font-size: 1.3rem; }
+    .scale-xl .dua-meaning { font-size: 1.15rem; }
+
+    /* Subtle Geometric Background Overlay */
+    .islamic-bg {
+      background-image: radial-gradient(rgba(217, 119, 6, 0.12) 1px, transparent 1px),
+                        radial-gradient(rgba(4, 120, 87, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Smooth Animated Arrow for Sa'i Direction */
+    @keyframes slideRight {
+      0%, 100% { transform: translateX(-6px); opacity: 0.7; }
+      50% { transform: translateX(6px); opacity: 1; }
+    }
+    @keyframes slideLeft {
+      0%, 100% { transform: translateX(6px); opacity: 0.7; }
+      50% { transform: translateX(-6px); opacity: 1; }
+    }
+    .animate-dir-right {
+      animation: slideRight 1.5s infinite ease-in-out;
+    }
+    .animate-dir-left {
+      animation: slideLeft 1.5s infinite ease-in-out;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.3);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen pb-28 transition-colors duration-300 islamic-bg scale-md" id="app-body">
+
+  <!-- ==========================================
+       STICKY TOP HEADER & CONTROLS
+       ========================================== -->
+  <header class="sticky top-0 z-40 bg-emerald-900/95 dark:bg-slate-900/95 backdrop-blur-md text-white shadow-lg border-b border-emerald-700/50">
+    <div class="max-w-3xl mx-auto px-3 sm:px-5 pt-3 pb-2.5">
+      <!-- Top Row: App Title & Utility Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5">
+          <!-- Kaaba Emblem SVG -->
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 p-0.5 shadow-md flex-shrink-0">
+            <div class="w-full h-full bg-emerald-950 rounded-[10px] flex items-center justify-center">
+              <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L3 6.5v11L12 22l9-4.5v-11L12 2zm0 2.2l6.8 3.4L12 11 5.2 7.6 12 4.2zm-7 5.2l6 3v7.3l-6-3V9.4zm8 10.3v-7.3l6-3v7.3l-6 3z"/>
+                <rect x="3" y="8.5" width="18" height="1.6" fill="#fbbf24" opacity="0.9"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-base sm:text-lg font-bold tracking-tight leading-tight flex items-center gap-1.5">
+              <span>คู่มือนำทางอุมเราะห์ & คลังดุอาอ์ 50 บท</span>
+              <span class="text-xs font-normal bg-amber-500/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full hidden sm:inline-block">ตามซุนนะห์ ﷺ</span>
+            </h1>
+            <p class="text-[11px] sm:text-xs text-emerald-200/90">บันทึกความคืบหน้าอัตโนมัติ • รวม 50 บทดุอาอ์จากอัลกุรอานและซุนนะห์</p>
+          </div>
+        </div>
+
+        <!-- Right Controls: Font Size, Dark Mode, Reset -->
+        <div class="flex items-center gap-1.5">
+          <!-- Font Size Controller -->
+          <div class="flex items-center bg-emerald-950/80 dark:bg-slate-800 rounded-lg p-0.5 border border-emerald-700/60" title="ปรับขนาดตัวอักษรบทดุอาอ์">
+            <button onclick="setFontScale('sm')" id="font-btn-sm" class="px-2 py-1 text-xs rounded-md transition font-medium text-emerald-200 hover:text-white">A-</button>
+            <button onclick="setFontScale('md')" id="font-btn-md" class="px-2 py-1 text-xs rounded-md transition font-bold bg-amber-500 text-slate-950">A</button>
+            <button onclick="setFontScale('lg')" id="font-btn-lg" class="px-2 py-1 text-xs rounded-md transition font-medium text-emerald-200 hover:text-white">A+</button>
+            <button onclick="setFontScale('xl')" id="font-btn-xl" class="px-2 py-1 text-xs rounded-md transition font-medium text-emerald-200 hover:text-white">A++</button>
+          </div>
+
+          <!-- Dark Mode Toggle -->
+          <button onclick="toggleDarkMode()" class="w-8 h-8 rounded-lg bg-emerald-950/80 dark:bg-slate-800 border border-emerald-700/60 flex items-center justify-center text-amber-300 hover:bg-emerald-800 transition" title="สลับโหมดกลางคืน">
+            <i id="dark-mode-icon" class="fa-solid fa-moon text-sm"></i>
+          </button>
+
+          <!-- Reset All Button -->
+          <button onclick="openResetModal()" class="w-8 h-8 rounded-lg bg-red-500/20 hover:bg-red-500/30 border border-red-400/40 flex items-center justify-center text-red-200 transition" title="รีเซ็ตข้อมูลทั้งหมด">
+            <i class="fa-solid fa-rotate-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Second Row: Gender Selector & Overall Progress Bar -->
+      <div class="mt-2.5 pt-2 border-t border-emerald-800/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <!-- Gender Switcher -->
+        <div class="flex items-center justify-between sm:justify-start gap-2">
+          <span class="text-xs text-emerald-200 font-medium"><i class="fa-solid fa-user-check mr-1 text-amber-400"></i>โหมดคำแนะนำ:</span>
+          <div class="inline-flex rounded-lg bg-emerald-950/90 dark:bg-slate-800 p-0.5 border border-emerald-700/60">
+            <button onclick="setGender('male')" id="gender-btn-male" class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition">
+              <i class="fa-solid fa-person text-sm"></i>
+              <span>ผู้ชาย</span>
+            </button>
+            <button onclick="setGender('female')" id="gender-btn-female" class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition">
+              <i class="fa-solid fa-person-dress text-sm"></i>
+              <span>ผู้หญิง</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Overall Umrah Progress Bar -->
+        <div class="flex-1 sm:max-w-xs">
+          <div class="flex justify-between items-center text-[11px] mb-1">
+            <span class="text-emerald-200 font-medium" id="progress-status-text">ความคืบหน้าอุมเราะห์รวม</span>
+            <span class="font-bold text-amber-300" id="progress-percentage">0%</span>
+          </div>
+          <div class="w-full h-2 bg-emerald-950 dark:bg-slate-800 rounded-full overflow-hidden border border-emerald-700/40">
+            <div id="overall-progress-bar" class="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT CONTAINER
+       ========================================== -->
+  <main class="max-w-3xl mx-auto px-3 sm:px-5 pt-4 space-y-6">
+
+    <!-- ==========================================
+         STEP 1: การครองอิหฺรอม (الإحرام)
+         ========================================== -->
+    <section id="tab-content-1" class="space-y-5">
+      <!-- Hero Banner Step 1 -->
+      <div class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-md border border-emerald-700/40 relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2">
+            <span>ขั้นตอนที่ 1 จาก 4</span>
+            <span>•</span>
+            <span class="font-arabic text-sm">الإحرام</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold">การเตรียมตัวและการครองอิหฺรอม ณ จุดมีกอต</h2>
+          <p class="text-xs sm:text-sm text-emerald-100/90 mt-1.5 leading-relaxed">
+            การครองอิหฺรอมคือการตั้งเจตนาเข้าสู่พิธีอุมเราะห์ ต้องกระทำก่อนหรือเมื่อเดินทางถึงเขต <strong>มีกอต (الميقات)</strong> หากเดินทางโดยเครื่องบินให้เตรียมร่างกายและสวมชุดอิหฺรอมให้พร้อมก่อนขึ้นเครื่อง และกล่าวตั้งเจตนาเมื่อกัปตันประกาศเข้าเขตมีกอต
+          </p>
+        </div>
+      </div>
+
+      <!-- Preparation Checklist Card -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-bold text-base sm:text-lg text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-amber-500"></i>
+            <span>เช็กลิสต์ซุนนะห์ก่อนครองอิหฺรอม</span>
+          </h3>
+          <span id="ihram-checklist-badge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">0/4</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Item 1 -->
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50/50 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer transition select-none">
+            <input type="checkbox" onchange="toggleChecklist('ihram_1')" id="chk-ihram_1" class="mt-1 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500" />
+            <div class="flex-1 text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">1. จัดการความสะอาดของร่างกาย</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">ตัดเล็บ ขริบหนวด โกนขนรักแร้และขนในร่มผ้าให้เรียบร้อยก่อนอาบน้ำ</p>
+            </div>
+          </label>
+
+          <!-- Item 2 -->
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50/50 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer transition select-none">
+            <input type="checkbox" onchange="toggleChecklist('ihram_2')" id="chk-ihram_2" class="mt-1 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500" />
+            <div class="flex-1 text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">2. อาบน้ำชำระร่างกาย (ฆุสลุ - الغسل)</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">อาบน้ำทั่วร่างกายเหมือนการอาบน้ำญะนาบะฮ์ (ส่งเสริมให้ทำทุกคน แม้แต่สตรีที่มีประจำเดือนหรือมีเลือดหลังคลอด)</p>
+            </div>
+          </label>
+
+          <!-- Item 3 (Gender Dynamic) -->
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50/50 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer transition select-none">
+            <input type="checkbox" onchange="toggleChecklist('ihram_3')" id="chk-ihram_3" class="mt-1 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500" />
+            <div class="flex-1 text-sm">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-semibold text-slate-800 dark:text-slate-100" id="ihram-perfume-title">3. การใช้น้ำหอมก่อนตั้งเจตนา</span>
+                <span id="ihram-perfume-badge" class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">ซุนนะห์ผู้ชาย</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1" id="ihram-perfume-desc">
+                ผู้ชายสามารถประพรมน้ำหอมที่ศีรษะและร่างกายได้ก่อนกล่าวเนียตอิหฺรอม (ระวังอย่าให้น้ำหอมติดบนผ้าอิหฺรอม)
+              </p>
+            </div>
+          </label>
+
+          <!-- Item 4 (Gender Dynamic) -->
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50/50 dark:hover:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer transition select-none">
+            <input type="checkbox" onchange="toggleChecklist('ihram_4')" id="chk-ihram_4" class="mt-1 w-5 h-5 rounded text-emerald-600 focus:ring-emerald-500" />
+            <div class="flex-1 text-sm">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-semibold text-slate-800 dark:text-slate-100">4. การแต่งกายชุดอิหฺรอมตามหลักการ</span>
+                <span id="ihram-dress-badge" class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">สำหรับผู้ชาย</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1" id="ihram-dress-desc">
+                สวมผ้า 2 ผืนที่ไม่มีการตัดเย็บเข้ารูป (นิยมสีขาว) ผืนล่างพันนุ่งเรียกว่า "อิซาร (الإزار)" ผืนบนคลุมไหล่ทั้งสองข้างเรียกว่า "ริดาอ์ (الرداء)" และสวมรองเท้าแตะที่เปิดเห็นหลังเท้าและตาตุ่มทั้งสองข้าง
+              </p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Travel Dua Collapsible Card -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <button onclick="toggleCollapse('travel-dua-collapse', 'travel-dua-chevron')" class="w-full flex items-center justify-between text-left">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">ซุนนะห์เมื่อเริ่มเดินทาง</span>
+              <h3 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">ดุอาอ์ขึ้นพาหนะและออกเดินทาง</h3>
+            </div>
+          </div>
+          <i id="travel-dua-chevron" class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+        </button>
+
+        <div id="travel-dua-collapse" class="hidden mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
+          <div class="bg-emerald-50/70 dark:bg-slate-800/90 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-2.5">
+            <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+              اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ، اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ، وَكَآبَةِ الْمَنْظَرِ، وَسُوءِ الْمُنْقَلَبِ فِي الْمَالِ وَالْأَهْلِ
+            </p>
+            <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+              "อัลลอฮุอักบัร (3 ครั้ง), ซุบฮานัลละซี ซัคเคาะเราะ ละนา ฮาซา วะมา กุนนา ละฮู มุกรินีน, วะอินนา อิลา ร็อบบินา ละมุนก่อลิบูน, อัลลอฮุมมะ อินนา นัสอะลุกะ ฟี ซะฟะรินา ฮาซัล บิรเราะ วัตตักวา, วะมินัล อะมะลิ มา ตัรฎอ, อัลลอฮุมมะ ฮัววิน อะลัยนา ซะฟะเราะนา ฮาซา วัฏวิ อันนา บุอ์ดะฮ์, อัลลอฮุมมะ อันตัศศอฮิบุ ฟิสซะฟัร, วัลเคาะลีฟะตุ ฟิลอะฮ์ลิ, อัลลอฮุมมะ อินนี อะอูซุบิกะ มิน วะอ์ซาอิส ซะฟัร, วะกะอาบะติล มันซ็อร, วะซูอิล มุนก่อละบิ ฟิลมาลิ วัลอะฮ์ลิ"
+            </p>
+            <p class="dua-meaning text-slate-600 dark:text-slate-300">
+              อัลลอฮ์ทรงยิ่งใหญ่ที่สุด (3 ครั้ง) มหาบริสุทธิ์แด่พระองค์ผู้ทรงทำให้สิ่งนี้บริการแก่เรา ทั้งๆ ที่เราไม่สามารถบังคับมันได้ และแท้จริงเราจะต้องกลับไปหาพระผู้อภิบาลของเรา โอ้อัลลอฮ์ แท้จริงพวกเราขอต่อพระองค์ในการเดินทางครั้งนี้ซึ่งคุณธรรมและความยำเกรง และขอการงานที่พระองค์ทรงพอพระทัย โอ้อัลลอฮ์ โปรดทรงให้การเดินทางครั้งนี้ของพวกเราสะดวกง่ายดาย และโปรดทรงย่นระยะทางที่ห่างไกลให้ใกล้เข้ามา โอ้อัลลอฮ์ พระองค์คือสหายในการเดินทาง และเป็นผู้ดูแลแทนในครอบครัว โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอความคุ้มครองต่อพระองค์ให้พ้นจากความยากลำบากในการเดินทาง ภาพที่เศร้าสลด และการกลับไปพบสิ่งไม่ดีในทรัพย์สินและครอบครัว
+            </p>
+            <div class="pt-1 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+              <span><i class="fa-solid fa-book-bookmark mr-1 text-emerald-600"></i>บันทึกโดย มุสลิม (1342)</span>
+              <button onclick="copyDuaById(27)" class="text-emerald-700 dark:text-emerald-400 font-semibold underline">คัดลอกดุอาอ์</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dua Card 1: Niyyah Umrah -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border-2 border-emerald-600/30 dark:border-emerald-500/30">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">รุก่นที่ 1 • เมื่อถึงเขตมีกอต</span>
+            <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">การกล่าวตั้งเจตนา (เนียต) เข้าสู่อุมเราะห์</h3>
+          </div>
+          <button onclick="copyDuaText('لَبَّيْكَ اللّهُمَّ عُمْرَةً', 'ลับบัยกัลลอฮุมมะ อุมเราะตัน', 'ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ด้วยการทำอุมเราะห์')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-emerald-950 text-xs font-medium text-slate-700 dark:text-slate-300 transition flex items-center gap-1.5">
+            <i class="fa-regular fa-copy"></i>
+            <span>คัดลอก</span>
+          </button>
+        </div>
+
+        <div class="bg-emerald-50/70 dark:bg-slate-800/90 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-3">
+          <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+            لَبَّيْكَ اللّهُمَّ عُمْرَةً
+          </p>
+          <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+            "ลับบัยกัลลอฮุมมะ อุมเราะตัน"
+          </p>
+          <p class="dua-meaning text-slate-600 dark:text-slate-300">
+            ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ด้วยการทำอุมเราะห์
+          </p>
+        </div>
+
+        <!-- Optional Condition Collapse -->
+        <div class="mt-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <button onclick="toggleCollapse('condition-dua-box', 'condition-chevron')" class="w-full flex items-center justify-between text-left text-xs sm:text-sm font-medium text-amber-700 dark:text-amber-400 hover:underline py-1">
+            <span><i class="fa-solid fa-circle-info mr-1.5"></i>กรณีเจ็บป่วยหรือเกรงว่าจะมีอุปสรรคขวางกั้น (คลิกเพื่อดูคำกล่าวตั้งเงื่อนไข)</span>
+            <i id="condition-chevron" class="fa-solid fa-chevron-down transition-transform duration-200"></i>
+          </button>
+          <div id="condition-dua-box" class="hidden mt-3 bg-amber-50/70 dark:bg-amber-950/30 rounded-xl p-3.5 border border-amber-200 dark:border-amber-800/50 space-y-2 text-center">
+            <p class="text-xs text-slate-600 dark:text-slate-300 text-left">
+              หากผู้ทำอุมเราะห์ป่วยหรือเกรงว่าจะมีเหตุสุดวิสัยทำให้ทำอุมเราะห์ไม่จบ สามารถกล่าวตั้งเงื่อนไขต่อท้ายตอนเนียตได้ว่า:
+            </p>
+            <p class="arabic-text dua-arabic font-bold text-amber-900 dark:text-amber-300">
+              اللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي
+            </p>
+            <p class="dua-phonetic font-semibold text-amber-800 dark:text-amber-200">
+              "อัลลอฮุมมะ มะหิลลี ฮัยซุ ฮะบัสตานี"
+            </p>
+            <p class="dua-meaning text-slate-600 dark:text-slate-300">
+              โอ้อัลลอฮ์ สถานที่ปลดเปลื้องอิหฺรอมของข้าพระองค์คือที่ใดก็ตามที่พระองค์ทรงกักขวางข้าพระองค์ไว้
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dua Card 3: Talbiyah + Interactive Counter -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-start justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">กล่าวต่อเนื่องตลอดการเดินทาง</span>
+            <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">คำกล่าวตัลบียะฮ์ (التلبية)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" id="talbiyah-gender-note">
+              ผู้ชายให้กล่าวเสียงดังพอประมาณ • ผู้หญิงให้กล่าวเสียงเบาพอได้ยินตัวเองและคนข้างเคียง
+            </p>
+          </div>
+          <button onclick="copyDuaText('لَبَّيْكَ اللّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ', 'ลับบัยกัลลอฮุมมะ ลับบัยก์, ลับบัยกะ ลาชะรีกะ ละกะ ลับบัยก์, อินนัลฮัมดะ วันนิอ์มะตะ ละกะ วัลมุลก์, ลาชะรีกะ ลัก', 'ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ข้าพระองค์ขอตอบรับ ข้าพระองค์ขอตอบรับโดยไม่มีภาคีใดๆ สำหรับพระองค์ แท้จริงมวลการสรรเสริญ ความโปรดปราน และอำนาจกรรมสิทธิ์นั้นเป็นของพระองค์ ไม่มีภาคีใดๆ สำหรับพระองค์')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-emerald-950 text-xs font-medium text-slate-700 dark:text-slate-300 transition flex items-center gap-1.5 flex-shrink-0">
+            <i class="fa-regular fa-copy"></i>
+            <span>คัดลอก</span>
+          </button>
+        </div>
+
+        <div class="bg-gradient-to-b from-amber-50/70 to-emerald-50/40 dark:from-slate-800 dark:to-slate-800/70 rounded-xl p-4 border border-amber-200/70 dark:border-slate-700 text-center space-y-3">
+          <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+            لَبَّيْكَ اللّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ
+          </p>
+          <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+            "ลับบัยกัลลอฮุมมะ ลับบัยก์, ลับบัยกะ ลาชะรีกะ ละกะ ลับบัยก์, อินนัลฮัมดะ วันนิอ์มะตะ ละกะ วัลมุลก์, ลาชะรีกะ ลัก"
+          </p>
+          <p class="dua-meaning text-slate-600 dark:text-slate-300">
+            ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ข้าพระองค์ขอตอบรับ ข้าพระองค์ขอตอบรับโดยไม่มีภาคีใดๆ สำหรับพระองค์ แท้จริงมวลการสรรเสริญ ความโปรดปราน และอำนาจกรรมสิทธิ์นั้นเป็นของพระองค์ ไม่มีภาคีใดๆ สำหรับพระองค์
+          </p>
+        </div>
+
+        <!-- Interactive Talbiyah Counter -->
+        <div class="mt-4 flex flex-wrap items-center justify-between gap-3 bg-slate-100 dark:bg-slate-800/90 p-3 rounded-xl">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-emerald-700 text-white flex items-center justify-center font-bold text-lg shadow-inner" id="talbiyah-count-display">0</div>
+            <div>
+              <div class="text-xs font-bold text-slate-700 dark:text-slate-200">ตัวนับการกล่าวตัลบียะฮ์ระหว่างเดินทาง</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">กล่าวไปจนกระทั่งเห็นกะอ์บะฮ์และเริ่มเดินฏอวาฟ</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <button onclick="incrementTalbiyah()" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 active:scale-95 text-white font-semibold text-xs sm:text-sm shadow transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-plus"></i>
+              <span>กดนับตัลบียะฮ์ (+1)</span>
+            </button>
+            <button onclick="resetTalbiyah()" class="px-3 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 text-slate-600 dark:text-slate-300 text-xs font-medium transition" title="รีเซ็ตตัวนับตัลบียะฮ์">
+              รีเซ็ต
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prohibitions of Ihram (محظورات الإحرام) -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-center gap-2 mb-3">
+          <i class="fa-solid fa-ban text-red-500 text-lg"></i>
+          <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">ข้อห้ามเมื่อเข้าสู่การครองอิหฺรอม (محظورات الإحرام)</h3>
+        </div>
+
+        <!-- Prohibition Filter Pills -->
+        <div class="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl mb-4 text-xs font-semibold">
+          <button onclick="switchProhibitionTab('shared')" id="prohib-btn-shared" class="py-2 px-2 rounded-lg bg-white dark:bg-slate-900 text-emerald-800 dark:text-emerald-300 shadow-sm transition">
+            ร่วมกันชาย-หญิง (6)
+          </button>
+          <button onclick="switchProhibitionTab('male')" id="prohib-btn-male" class="py-2 px-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 transition">
+            เฉพาะผู้ชาย (2)
+          </button>
+          <button onclick="switchProhibitionTab('female')" id="prohib-btn-female" class="py-2 px-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 transition">
+            เฉพาะผู้หญิง (2)
+          </button>
+        </div>
+
+        <!-- Shared Prohibitions -->
+        <div id="prohib-panel-shared" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">1</span>
+            <span>ห้ามตัด โกน หรือถอนเส้นผมและขนตามร่างกาย</span>
+          </div>
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">2</span>
+            <span>ห้ามตัดเล็บมือและเล็บเท้า</span>
+          </div>
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">3</span>
+            <span>ห้ามใช้น้ำหอมหรือเครื่องหอมทุกชนิดทั้งที่ร่างกายและเสื้อผ้า</span>
+          </div>
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">4</span>
+            <span>ห้ามล่าหรือฆ่าสัตว์บก</span>
+          </div>
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">5</span>
+            <span>ห้ามสู่ขอหรือทำพิธีแต่งงาน (นิกาห์) ให้ตนเองและผู้อื่น</span>
+          </div>
+          <div class="p-3 rounded-xl bg-red-50/60 dark:bg-red-950/20 border border-red-200/60 dark:border-red-900/40 flex items-start gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 font-bold flex items-center justify-center flex-shrink-0 text-xs">6</span>
+            <span>ห้ามมีเพศสัมพันธ์หรือสัมผัสเล้าโลมด้วยอารมณ์ใคร่</span>
+          </div>
+        </div>
+
+        <!-- Male Specific Prohibitions -->
+        <div id="prohib-panel-male" class="hidden space-y-2.5 text-xs sm:text-sm">
+          <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-800/40 flex items-start gap-3">
+            <i class="fa-solid fa-hat-cowboy-side text-amber-600 mt-0.5"></i>
+            <div>
+              <div class="font-bold text-slate-800 dark:text-slate-100">1. ห้ามคลุมศีรษะด้วยสิ่งที่แนบติดศีรษะ</div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">เช่น หมวก ผ้าโพกศีรษะ (แต่สามารถกางร่ม อาศัยเงาเต็นท์ หรือหลังคารถได้โดยไม่ผิดข้อห้าม)</p>
+            </div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-800/40 flex items-start gap-3">
+            <i class="fa-solid fa-shirt text-amber-600 mt-0.5"></i>
+            <div>
+              <div class="font-bold text-slate-800 dark:text-slate-100">2. ห้ามสวมใส่เสื้อผ้าที่ตัดเย็บเข้ารูปตามสัดส่วนร่างกาย</div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">เช่น เสื้อ กางเกง กางเกงชั้นใน ถุงเท้า หรือรองเท้าที่หุ้มตาตุ่ม</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Female Specific Prohibitions -->
+        <div id="prohib-panel-female" class="hidden space-y-2.5 text-xs sm:text-sm">
+          <div class="p-3.5 rounded-xl bg-rose-50/70 dark:bg-rose-950/20 border border-rose-200/70 dark:border-rose-800/40 flex items-start gap-3">
+            <i class="fa-solid fa-mask-face text-rose-600 mt-0.5"></i>
+            <div>
+              <div class="font-bold text-slate-800 dark:text-slate-100">1. ห้ามสวมผ้าปิดหน้า (นิกอบ - النقاب)</div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">หากอยู่ใกล้ชายที่ไม่ใช่มะหฺรอม สามารถดึงชายผ้าคลุมศีรษะลงมาบังใบหน้าได้โดยไม่ใช้ผ้าที่เย็บผูกมัดเฉพาะหน้า</p>
+            </div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-rose-50/70 dark:bg-rose-950/20 border border-rose-200/70 dark:border-rose-800/40 flex items-start gap-3">
+            <i class="fa-solid fa-mitten text-rose-600 mt-0.5"></i>
+            <div>
+              <div class="font-bold text-slate-800 dark:text-slate-100">2. ห้ามสวมถุงมือ (القفازين)</div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">สามารถใช้ชายผ้าคลุมบังมือได้หากต้องการความมิดชิด แต่ห้ามสวมถุงมือที่ตัดเย็บสวมนิ้วมือ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Step Button -->
+      <button onclick="switchTab(2)" class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold shadow-md flex items-center justify-center gap-2 transition">
+        <span>ไปขั้นตอนที่ 2: การฏอวาฟรอบกะอ์บะฮ์</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </section>
+
+
+    <!-- ==========================================
+         STEP 2: การฏอวาฟ (الطواف)
+         ========================================== -->
+    <section id="tab-content-2" class="hidden space-y-5">
+      <!-- Hero Banner Step 2 -->
+      <div class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-md border border-emerald-700/40">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2">
+          <span>ขั้นตอนที่ 2 จาก 4</span>
+          <span>•</span>
+          <span class="font-arabic text-sm">الطواف</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold">การเข้าสู่มัสยิดอัลฮะรอมและการฏอวาฟ 7 รอบ</h2>
+        <p class="text-xs sm:text-sm text-emerald-100/90 mt-1.5 leading-relaxed">
+          เดินเวียนรอบกะอ์บะฮ์ทวนเข็มนาฬิกา (ให้กะอ์บะฮ์อยู่ทางซ้ายมือ) จำนวน <strong>7 รอบ</strong> โดยเริ่มและจบแต่ละรอบที่แนวหินดำ (สังเกตแนวไฟสีเขียวบนผนังมัสยิด)
+        </p>
+      </div>
+
+      <!-- Pre-Tawaf Checklist -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-bold text-base sm:text-lg text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-clipboard-check text-amber-500"></i>
+            <span>เตรียมพร้อมก่อนเริ่มเดินฏอวาฟ</span>
+          </h3>
+          <span id="tawaf-pre-badge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">0/4</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_pre_1')" id="chk-tawaf_pre_1" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">1. มีน้ำละหมาด (วุฎูอ์) ที่สมบูรณ์</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">ผู้ทำฏอวาฟต้องอยู่ในสภาพมีน้ำละหมาดที่สมบูรณ์</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_pre_2')" id="chk-tawaf_pre_2" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">2. ก้าวเข้ามัสยิดอัลฮะรอมด้วยเท้าขวาพร้อมกล่าวดุอาอ์</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">ดูบทดุอาอ์เข้ามัสยิดในการ์ดด้านล่าง</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_pre_3')" id="chk-tawaf_pre_3" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">3. หยุดกล่าวคำตัลบียะฮ์เมื่อจะเริ่มเดินฏอวาฟ</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">เมื่อมาถึงแนวหินดำเพื่อเริ่มฏอวาฟ ให้หยุดกล่าวตัลบียะฮ์</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_pre_4')" id="chk-tawaf_pre_4" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-semibold text-slate-800 dark:text-slate-100" id="idtiba-title">4. การเปิดไหล่ขวา (อัล-อิฎฏิบาอ์ - الإضطباع)</span>
+                <span id="idtiba-badge" class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">เฉพาะผู้ชาย</span>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1" id="idtiba-desc">
+                ผู้ชายให้นำผ้าอิหฺรอมผืนบนลอดใต้รักแร้ขวา และนำปลายผ้าพาดไว้บนไหล่ซ้ายเพื่อเปิดไหล่ขวาไว้ตลอดการเดิน 7 รอบ (เมื่อครบ 7 รอบแล้วจึงห่มคลุมไหล่ตามเดิม)
+              </p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Dua Entering Masjid (Collapsible or visible) -->
+        <div class="mt-4 bg-emerald-50/70 dark:bg-slate-800/80 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-2">
+          <div class="flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-300 font-semibold mb-1">
+            <span><i class="fa-solid fa-mosque mr-1"></i>ดุอาอ์ก้าวเข้ามัสยิดอัลฮะรอม (ก้าวเท้าขวา)</span>
+            <button onclick="copyDuaText('بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ', 'บิสมิลลาฮ์ วัศศ่อลาตุ วัสสะลามุ อะลา เราะซูลิลลาฮ์ อัลลอฮุมมัฟตะห์ ลี อับวาบะ เราะห์มะติก', 'ด้วยพระนามของอัลลอฮ์ ขอความจำเริญและสันติจงมีแด่ศาสนทูตของอัลลอฮ์ โอ้อัลลอฮ์ โปรดทรงเปิดประตูแห่งความเมตตาของพระองค์แก่ข้าพระองค์ด้วยเถิด')" class="underline hover:text-emerald-600">คัดลอก</button>
+          </div>
+          <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+            بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ
+          </p>
+          <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+            "บิสมิลลาฮ์ วัศศ่อลาตุ วัสสะลามุ อะลา เราะซูลิลลาฮ์ อัลลอฮุมมัฟตะห์ ลี อับวาบะ เราะห์มะติก"
+          </p>
+          <p class="dua-meaning text-slate-600 dark:text-slate-300">
+            ด้วยพระนามของอัลลอฮ์ ขอความจำเริญและสันติจงมีแด่ศาสนทูตของอัลลอฮ์ โอ้อัลลอฮ์ โปรดทรงเปิดประตูแห่งความเมตตาของพระองค์แก่ข้าพระองค์ด้วยเถิด
+          </p>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           INTERACTIVE 7-ROUND TAWAF COUNTER WIDGET
+           ========================================== -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-md border-2 border-amber-500/40 dark:border-amber-500/30">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">รุก่นที่ 2 • ตัวนับรอบอัตโนมัติ</span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">ตัวนับรอบฏอวาฟ (7 รอบ)</h3>
+          </div>
+          <button onclick="resetTawafCounter()" class="text-xs text-slate-500 hover:text-red-500 dark:text-slate-400 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+            <span>เริ่มนับใหม่</span>
+          </button>
+        </div>
+
+        <!-- Circular Counter + Round Pills -->
+        <div class="flex flex-col sm:flex-row items-center gap-5 bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-inner">
+          <!-- SVG Ring around Kaaba -->
+          <div class="relative w-36 h-36 flex items-center justify-center flex-shrink-0">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" stroke="rgba(255,255,255,0.12)" stroke-width="10" fill="none" />
+              <circle id="tawaf-ring-circle" cx="60" cy="60" r="52" stroke="#fbbf24" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="326.7" stroke-dashoffset="326.7" class="transition-all duration-500" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <span class="text-[11px] uppercase tracking-wider text-emerald-200" id="tawaf-ring-label">เสร็จสิ้นแล้ว</span>
+              <div class="text-3xl font-extrabold text-amber-400 leading-none my-0.5">
+                <span id="tawaf-completed-num">0</span><span class="text-lg text-emerald-200">/7</span>
+              </div>
+              <span class="text-[11px] text-emerald-100 font-medium" id="tawaf-active-round-badge">กำลังเดินรอบที่ 1</span>
+            </div>
+          </div>
+
+          <!-- Right Info & Sunnah Instruction Banner -->
+          <div class="flex-1 w-full space-y-3 text-center sm:text-left">
+            <!-- 7 Round Pills -->
+            <div>
+              <div class="text-xs text-emerald-200 mb-1.5 flex items-center justify-center sm:justify-start gap-1.5">
+                <span>สถานะทั้ง 7 รอบ (เริ่มและจบที่แนวหินดำ):</span>
+              </div>
+              <div class="grid grid-cols-7 gap-1.5" id="tawaf-pills-container">
+                <!-- Populated dynamically via JS -->
+              </div>
+            </div>
+
+            <!-- Dynamic Sunnah Box for Current Round -->
+            <div id="tawaf-sunnah-banner" class="p-3 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-100 text-xs sm:text-sm leading-relaxed">
+              <!-- Updated dynamically by JS -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="decrementTawaf()" id="tawaf-prev-btn" class="px-3.5 py-3 rounded-xl bg-white/10 hover:bg-white/20 disabled:opacity-30 text-white text-xs font-semibold transition">
+                <i class="fa-solid fa-minus"></i> ย้อนกลับ
+              </button>
+              <button onclick="incrementTawaf()" id="tawaf-next-btn" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 active:scale-[0.99] text-slate-950 font-bold text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check-circle"></i>
+                <span id="tawaf-btn-text">ครบรอบที่ 1 (ถึงแนวหินดำ)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Built-in Duas During Tawaf -->
+        <div class="mt-5 space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-book-open-reader text-amber-500"></i>
+            <span>บทดุอาอ์ที่ใช้กล่าวในแต่ละจุดของรอบฏอวาฟ</span>
+          </h4>
+
+          <!-- Point 1: Black Stone Line -->
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/80 px-2.5 py-1 rounded-md">
+                <i class="fa-solid fa-location-dot text-emerald-600"></i>
+                จุดที่ 1: เมื่อตรงแนวหินดำ (الحجر الأسود)
+              </span>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400">ยกมือขวาชี้ไปทางหินดำ 1 ครั้ง (ไม่ต้องจูบมือ)</span>
+            </div>
+            <div class="text-center py-2 space-y-1.5">
+              <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+                بِسْمِ اللهِ وَاللهُ أَكْبَرُ
+              </p>
+              <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+                "บิสมิลลาฮิ วัลลอฮุอักบัร" <span class="text-xs font-normal text-slate-500">(ในรอบถัดๆ ไปกล่าว اللهُ أَكْبَرُ - อัลลอฮุอักบัร)</span>
+              </p>
+              <p class="dua-meaning text-slate-600 dark:text-slate-300">
+                ด้วยพระนามของอัลลอฮ์ และอัลลอฮ์ทรงยิ่งใหญ่ที่สุด
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 2: Between Yemeni Corner and Black Stone -->
+          <div class="p-4 rounded-xl bg-amber-50/70 dark:bg-slate-800/90 border border-amber-200 dark:border-slate-700 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 dark:text-amber-300 bg-amber-200/70 dark:bg-amber-950/80 px-2.5 py-1 rounded-md">
+                <i class="fa-solid fa-star text-amber-600"></i>
+                จุดที่ 2: ระหว่างมุมยะมานี ➔ มุมหินดำ (ทุกรอบ)
+              </span>
+              <button onclick="copyDuaText('رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ', 'ร็อบบะนา อาตินา ฟิดดุนยา หะซะนะฮ์ วะฟิลอาคิเราะติ หะซะนะฮ์ วะกินา อะซาบันนาร', 'โอ้พระผู้เป็นเจ้าของเรา โปรดประทานสิ่งดีงามแก่เราในโลกนี้ และสิ่งดีงามในโลกหน้า และโปรดคุ้มครองเราให้พ้นจากการลงโทษแห่งไฟนรกด้วยเถิด')" class="text-xs text-amber-800 dark:text-amber-300 underline">คัดลอก</button>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">
+              *เมื่อถึงมุมยะมานี (الركن اليماني) หากอยู่ชิดกะอ์บะฮ์ให้ใช้มือขวาแตะโดยไม่ต้องจูบ หากอยู่ไกลให้เดินผ่านไปตามปกติโดย<strong>ไม่ต้องยกมือชี้และไม่ต้องกล่าวตักบีร</strong> แล้วอ่านดุอาอ์บทนี้ไปจนถึงมุมหินดำ:
+            </p>
+            <div class="text-center py-2 space-y-2">
+              <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+                رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+              </p>
+              <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+                "ร็อบบะนา อาตินา ฟิดดุนยา หะซะนะฮ์ วะฟิลอาคิเราะติ หะซะนะฮ์ วะกินา อะซาบันนาร"
+              </p>
+              <p class="dua-meaning text-slate-600 dark:text-slate-300">
+                โอ้พระผู้เป็นเจ้าของเรา โปรดประทานสิ่งดีงามแก่เราในโลกนี้ และสิ่งดีงามในโลกหน้า และโปรดคุ้มครองเราให้พ้นจากการลงโทษแห่งไฟนรกด้วยเถิด
+              </p>
+            </div>
+          </div>
+
+          <!-- Point 3: Interactive Sunnah Dua Carousel for Walking in Tawaf -->
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-amber-50/40 dark:from-slate-800/90 dark:via-slate-900 dark:to-slate-800/90 border-2 border-emerald-500/30 dark:border-emerald-500/30 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950 px-2.5 py-0.5 rounded-full">
+                  <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>
+                  ดุอาอ์จากอัลกุรอานและซุนนะห์แนะนำขณะเดินฏอวาฟ
+                </span>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  ไม่มีบทบังคับตายตัวในแต่ละรอบ ท่านสามารถเลื่อนอ่านบทดุอาอ์ครอบคลุม 39 บทจากอัลกุรอานและซุนนะห์ด้านล่าง หรือขอดุอาอ์ด้วยภาษาของตนเองได้
+                </p>
+              </div>
+              <button onclick="switchTab(5)" class="text-xs font-semibold text-emerald-700 dark:text-amber-400 hover:underline flex items-center gap-1">
+                <span>ดูคลังดุอาอ์ทั้งหมด (50 บท)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </button>
+            </div>
+
+            <!-- Carousel Controls Header -->
+            <div class="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-xl">
+              <button onclick="changeCarouselDua('tawaf', -1)" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 hover:bg-emerald-50 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-sm transition flex items-center gap-1">
+                <i class="fa-solid fa-chevron-left"></i> ก่อนหน้า
+              </button>
+              <div class="text-center">
+                <span id="tawaf-carousel-index" class="text-xs font-bold text-emerald-800 dark:text-amber-300">บทที่ 1 / 39</span>
+              </div>
+              <button onclick="changeCarouselDua('tawaf', 1)" class="px-2.5 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-xs font-bold text-white shadow-sm transition flex items-center gap-1">
+                บทถัดไป <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <!-- Carousel Active Dua Display -->
+            <div id="tawaf-carousel-body" class="bg-white dark:bg-slate-950/70 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-2.5">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post-Tawaf Checklist: Maqam Ibrahim & Zamzam -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-base sm:text-lg text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
+            <i class="fa-solid fa-person-praying text-amber-500"></i>
+            <span>ปฏิบัติหลังเดินฏอวาฟครบ 7 รอบ</span>
+          </h3>
+          <span id="tawaf-post-badge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300">0/4</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_post_1')" id="chk-tawaf_post_1" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">1. ห่มผ้าคลุมไหล่ทั้งสองข้างตามเดิม (สำหรับผู้ชาย)</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">เมื่อจบฏอวาฟรอบที่ 7 ให้คลุมไหล่ขวากลับตามเดิมก่อนเข้าสู่การละหมาด</p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_post_2')" id="chk-tawaf_post_2" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm flex-1">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">2. เดินไปทางด้านหลังมะกอมอิบรอฮีม (مقام إبراهيم)</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">พร้อมกล่าวโองการอัลกุรอานต่อไปนี้:</p>
+              <div class="bg-emerald-50/80 dark:bg-slate-900 p-3 rounded-xl border border-emerald-200 dark:border-slate-700 text-center space-y-1">
+                <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى</p>
+                <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">"วัตตะคิซู มิมมะกอมิ อิบรอฮีมะ มุศ็อลลา"</p>
+                <p class="dua-meaning text-slate-600 dark:text-slate-300">และพวกเจ้าจงยึดเอามะกอมอิบรอฮีมเป็นที่ละหมาดเถิด</p>
+              </div>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_post_3')" id="chk-tawaf_post_3" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">3. ละหมาดสุนัตหลังฏอวาฟ 2 ร็อกอะฮ์</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                • <strong>ร็อกอะฮ์ที่ 1:</strong> อ่านอัล-ฟาติหะฮ์ ตามด้วยซูเราะฮ์ <strong>อัล-กาฟิรูน (قُلْ يَا أَيُّهَا الْكَافِرُونَ)</strong><br>
+                • <strong>ร็อกอะฮ์ที่ 2:</strong> อ่านอัล-ฟาติหะฮ์ ตามด้วยซูเราะฮ์ <strong>อัล-อิคลาศ (قُلْ هُوَ اللهُ أَحَدٌ)</strong><br>
+                *(หากบริเวณหลังมะกอมอิบรอฮีมคนแน่น สามารถละหมาดที่ใดก็ได้ในมัสยิด)*
+              </p>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 cursor-pointer select-none">
+            <input type="checkbox" onchange="toggleChecklist('tawaf_post_4')" id="chk-tawaf_post_4" class="mt-1 w-5 h-5 rounded text-emerald-600" />
+            <div class="text-sm flex-1">
+              <div class="font-semibold text-slate-800 dark:text-slate-100">4. ดื่มน้ำซัมซัม (ماء زمزم) และขอดุอาอ์</div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                ส่งเสริมให้หันหน้าไปทางกิบลัต กล่าวบิสมิลลาฮ์ ดื่มให้อิ่มและขอดุอาอ์ในสิ่งที่ปรารถนา เพราะท่านนบี ﷺ กล่าวว่า <em>"น้ำซัมซัมนั้นเป็นไปตามเจตนาของผู้ดื่ม"</em> (บันทึกโดย อิบนุมาญะฮ์ 3062)
+              </p>
+              <div class="bg-emerald-50/80 dark:bg-slate-900 p-3.5 rounded-xl border border-emerald-200 dark:border-slate-700 text-center space-y-1.5">
+                <div class="flex items-center justify-between text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold">
+                  <span>ดุอาอ์เมื่อดื่มน้ำซัมซัม (รายงานจากอิบนุอับบาส)</span>
+                  <button type="button" onclick="event.preventDefault(); copyDuaById(30)" class="underline">คัดลอก</button>
+                </div>
+                <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+                  اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا وَاسِعًا، وَشِفَاءً مِنْ كُلِّ دَاءٍ
+                </p>
+                <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+                  "อัลลอฮุมมะ อินนี อัสอะลุกะ อิลมัน นาฟิอัน, วะริซก้อน วาซิอัน, วะชิฟาอัน มิน กุลลิ ดาอ์"
+                </p>
+                <p class="dua-meaning text-slate-600 dark:text-slate-300">
+                  โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอต่อพระองค์ซึ่งความรู้ที่ยังประโยชน์ ปัจจัยยังชีพที่กว้างขวาง และการบำบัดรักษาจากโรคภัยทั้งปวง
+                </p>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="switchTab(1)" class="py-3.5 px-4 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>ย้อนกลับ: อิหฺรอม</span>
+        </button>
+        <button onclick="switchTab(3)" class="py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-800 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2">
+          <span>ไปขั้นตอนที่ 3: สะแอ</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         STEP 3: การเดินสะแอ (السعي)
+         ========================================== -->
+    <section id="tab-content-3" class="hidden space-y-5">
+      <!-- Hero Banner Step 3 -->
+      <div class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-md border border-emerald-700/40">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2">
+          <span>ขั้นตอนที่ 3 จาก 4</span>
+          <span>•</span>
+          <span class="font-arabic text-sm">السعي</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold">การเดินสะแอระหว่างเนินเขาซอฟาและมัรวะฮ์ (7 เที่ยว)</h2>
+        <p class="text-xs sm:text-sm text-emerald-100/90 mt-1.5 leading-relaxed">
+          เริ่มต้นเดินจาก <strong>เนินเขาซอฟา (الصفا)</strong> ไปยัง <strong>เนินเขามัรวะฮ์ (المروة)</strong> นับเป็นเที่ยวที่ 1 และเดินกลับจากมัรวะฮ์มายังซอฟานับเป็นเที่ยวที่ 2 สลับไปมาจนครบ <strong>7 เที่ยว (สิ้นสุดที่เนินเขามัรวะฮ์)</strong>
+        </p>
+      </div>
+
+      <!-- Dua Approaching Mount Safa (First time only) -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800">
+        <div class="flex items-start justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">อ่านเฉพาะครั้งแรก • เมื่อเดินเข้าใกล้เนินเขาซอฟา</span>
+            <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">คำกล่าวเมื่อขึ้นสู่เนินเขาซอฟาครั้งแรก</h3>
+          </div>
+          <button onclick="copyDuaText('إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ ، أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ', 'อินนัศศ่อฟา วัลมัรวะตะ มิน ชะอาอิริลลาฮ์ ... อับดะอุ บิมา บะดะอัลลอฮุ บิฮี', 'แท้จริงซอฟาและมัรวะฮ์นั้นเป็นส่วนหนึ่งจากสัญลักษณ์ทั้งหลายของอัลลอฮ์ ... ฉันขอเริ่มต้นด้วยสิ่งที่อัลลอฮ์ทรงเริ่มต้น')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5 flex-shrink-0">
+            <i class="fa-regular fa-copy"></i>
+            <span>คัดลอก</span>
+          </button>
+        </div>
+
+        <div class="bg-emerald-50/70 dark:bg-slate-800/90 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-2.5">
+          <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+            إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا ۚ وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللهَ شَاكِرٌ عَلِيمٌ ❖ أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ
+          </p>
+          <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+            "อินนัศศ่อฟา วัลมัรวะตะ มิน ชะอาอิริลลาฮ์... อับดะอุ บิมา บะดะอัลลอฮุ บิฮี"
+          </p>
+          <p class="dua-meaning text-slate-600 dark:text-slate-300">
+            แท้จริงซอฟาและมัรวะฮ์นั้นเป็นส่วนหนึ่งจากสัญลักษณ์ทั้งหลายของอัลลอฮ์... ฉันขอเริ่มต้นด้วยสิ่งที่อัลลอฮ์ทรงเริ่มต้น (ซูเราะฮ์อัล-บะกอเราะฮ์ 2:158 และบันทึกโดยมุสลิม 1218)
+          </p>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           INTERACTIVE 7-LAP SA'I COUNTER WIDGET
+           ========================================== -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-md border-2 border-amber-500/40 dark:border-amber-500/30 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">รุก่นที่ 3 • แผนผังนำทางอัจฉริยะ</span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">ตัวนับการเดินสะแอ (7 เที่ยว)</h3>
+          </div>
+          <button onclick="resetSaiCounter()" class="text-xs text-slate-500 hover:text-red-500 dark:text-slate-400 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800">
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+            <span>เริ่มนับใหม่</span>
+          </button>
+        </div>
+
+        <!-- Visual Safa <-> Marwah Map Card -->
+        <div class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 text-white rounded-2xl p-4 sm:p-5 shadow-inner space-y-4">
+          <!-- Top Status Row -->
+          <div class="flex items-center justify-between">
+            <span id="sai-current-badge" class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 font-bold text-xs sm:text-sm">
+              กำลังเดินเที่ยวที่ 1 / 7
+            </span>
+            <span id="sai-completed-text" class="text-xs text-emerald-200 font-medium">
+              เสร็จแล้ว 0 เที่ยว
+            </span>
+          </div>
+
+          <!-- Visual Track Safa to Marwah -->
+          <div class="relative flex items-center justify-between bg-slate-900/80 rounded-2xl p-4 border border-emerald-700/50">
+            <!-- Mount Safa Node -->
+            <div id="node-safa" class="flex flex-col items-center z-10 w-20 text-center">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 flex flex-col items-center justify-center font-bold shadow-md border-2 border-white">
+                <i class="fa-solid fa-mountain text-sm"></i>
+                <span class="text-[10px] leading-tight mt-0.5">ซอฟา</span>
+              </div>
+              <span class="text-xs font-arabic text-amber-300 mt-1">الصفا</span>
+            </div>
+
+            <!-- Middle Track + Green Light Zone -->
+            <div class="flex-1 px-2 flex flex-col items-center">
+              <div id="sai-direction-title" class="text-xs sm:text-sm font-bold text-amber-300 mb-1.5 text-center">
+                ซอฟา ➔ มัรวะฮ์
+              </div>
+
+              <!-- Track Bar with Green Zone -->
+              <div class="w-full h-3 bg-slate-800 rounded-full relative overflow-hidden flex items-center justify-center border border-slate-700">
+                <div class="w-1/3 h-full bg-emerald-500/80 border-x-2 border-emerald-300 animate-pulse" title="ช่วงแถบไฟสีเขียว"></div>
+              </div>
+
+              <!-- Animated Direction Arrow -->
+              <div id="sai-arrow-icon" class="mt-1.5 text-amber-400 text-lg animate-dir-right">
+                <i class="fa-solid fa-angles-right"></i>
+              </div>
+              <span class="text-[10px] text-emerald-300">แถบไฟสีเขียว (الميلين الأخضرين)</span>
+            </div>
+
+            <!-- Mount Marwah Node -->
+            <div id="node-marwah" class="flex flex-col items-center z-10 w-20 text-center">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-800 text-white flex flex-col items-center justify-center font-bold shadow-md border-2 border-emerald-500">
+                <i class="fa-solid fa-mountain text-sm"></i>
+                <span class="text-[10px] leading-tight mt-0.5">มัรวะฮ์</span>
+              </div>
+              <span class="text-xs font-arabic text-emerald-200 mt-1">المروة</span>
+            </div>
+          </div>
+
+          <!-- 7 Lap Pills -->
+          <div class="grid grid-cols-7 gap-1.5" id="sai-pills-container">
+            <!-- Rendered via JS -->
+          </div>
+
+          <!-- Green Light Instruction Banner -->
+          <div id="sai-greenlight-banner" class="p-3 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-100 text-xs sm:text-sm leading-relaxed">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <!-- Action Buttons for Sa'i Laps -->
+          <div class="flex items-center gap-2 pt-1">
+            <button onclick="decrementSai()" id="sai-prev-btn" class="px-3.5 py-3 rounded-xl bg-white/10 hover:bg-white/20 disabled:opacity-30 text-white text-xs font-semibold transition">
+              <i class="fa-solid fa-minus"></i> ย้อนกลับ
+            </button>
+            <button onclick="incrementSai()" id="sai-next-btn" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 active:scale-[0.99] text-slate-950 font-bold text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-check-circle"></i>
+              <span id="sai-btn-text">จบเที่ยวที่ 1 (เมื่อถึงเนินมัรวะฮ์)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dua on Mount Safa & Marwah (Repeat 3 times) -->
+        <div class="p-4 rounded-2xl bg-emerald-50/70 dark:bg-slate-800/90 border border-emerald-200 dark:border-slate-700 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-900 dark:text-emerald-300 bg-emerald-200/70 dark:bg-emerald-950 px-2.5 py-1 rounded-md">
+              <i class="fa-solid fa-mountain-sun text-emerald-700 dark:text-amber-400"></i>
+              ดุอาอ์และซิกิรเมื่อขึ้นยืนบนเนินซอฟาและมัรวะฮ์ (อ่าน 3 ครั้ง)
+            </span>
+            <button onclick="copyDuaById(7)" class="text-xs text-emerald-800 dark:text-emerald-300 underline">คัดลอก</button>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300">
+            หันหน้าไปทางกะอ์บะฮ์ (กิบลัต) ยกมือทั้งสองข้างขึ้น กล่าวบทซิกิรนี้ <strong>3 ครั้ง</strong> โดยให้ขอดุอาอ์ส่วนตัวคั่นกลางระหว่างแต่ละครั้ง:
+          </p>
+          <div class="text-center py-2 space-y-2 bg-white dark:bg-slate-900 rounded-xl p-3.5 border border-emerald-100 dark:border-slate-800">
+            <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+              اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ
+            </p>
+            <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+              "อัลลอฮุอักบัร อัลลอฮุอักบัร อัลลอฮุอักบัร, ลาอิลาฮะ อิลลัลลอฮุ วะห์ดะฮู ลาชะรีกะละฮ์, ละฮุลมุลกุ วะละฮุลฮัมดุ วะฮุวะ อะลา กุลลิ ชัยอิน ก่อดีร, ลาอิลาฮะ อิลลัลลอฮุ วะห์ดะฮ์, อันญะซะ วะอ์ดะฮ์, วะนะศ่อเราะ อับดะฮ์, วะฮะซะมัล อะห์ซาบะ วะห์ดะฮ์"
+            </p>
+            <p class="dua-meaning text-slate-600 dark:text-slate-300">
+              อัลลอฮ์ทรงยิ่งใหญ่ที่สุด (3 ครั้ง) ไม่มีพระเจ้าอื่นใดนอกจากอัลลอฮ์เพียงพระองค์เดียว ไม่มีภาคีใดๆ สำหรับพระองค์ อำนาจกรรมสิทธิ์และมวลการสรรเสริญเป็นของพระองค์ และพระองค์ทรงมีเดชานุภาพเหนือทุกสิ่ง ไม่มีพระเจ้าอื่นใดนอกจากอัลลอฮ์เพียงพระองค์เดียว พระองค์ทรงปฏิบัติตามสัญญาของพระองค์ ทรงช่วยเหลือบ่าวของพระองค์ และทรงพิชิตกลุ่มชนที่เป็นศัตรูด้วยพระองค์เพียงผู้เดียว
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">ตัวนับกล่าวบนเนิน (3 ครั้ง):</span>
+              <div id="hill-dua-dots" class="flex items-center gap-1.5"></div>
+            </div>
+            <button onclick="incrementHillDua()" id="hill-dua-btn" class="px-3.5 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold transition">
+              กดนับครั้งที่ 1/3
+            </button>
+          </div>
+        </div>
+
+        <!-- Dua Between Green Lights / During Sa'i -->
+        <div class="p-4 rounded-2xl bg-amber-50/70 dark:bg-slate-800/90 border border-amber-200 dark:border-slate-700 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 dark:text-amber-300 bg-amber-200/70 dark:bg-amber-950/80 px-2.5 py-1 rounded-md">
+              <i class="fa-solid fa-person-running text-emerald-600"></i>
+              ดุอาอ์ระหว่างเดินสะแอและช่วงแถบไฟสีเขียว
+            </span>
+            <button onclick="copyDuaText('رَبِّ اغْفِرْ وَارْحَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ', 'ร็อบบิฆฟิร วัรฮัม, อินนะกะ อันตัล อะอัซซุล อักร็อม', 'โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงอภัยโทษและโปรดทรงเมตตาด้วยเถิด แท้จริงพระองค์คือผู้ทรงเกียรติยิ่ง ผู้ทรงเอื้อเฟื้อยิ่ง')" class="text-xs text-amber-800 dark:text-amber-300 underline">คัดลอก</button>
+          </div>
+          <div class="text-center py-2 space-y-2">
+            <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+              رَبِّ اغْفِرْ وَارْحَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ
+            </p>
+            <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+              "ร็อบบิฆฟิร วัรฮัม, อินนะกะ อันตัล อะอัซซุล อักร็อม"
+            </p>
+            <p class="dua-meaning text-slate-600 dark:text-slate-300">
+              โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงอภัยโทษและโปรดทรงเมตตาด้วยเถิด แท้จริงพระองค์คือผู้ทรงเกียรติยิ่ง ผู้ทรงเอื้อเฟื้อยิ่ง
+            </p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              (รายงานจากท่านอิบนุมัสอูด และท่านอิบนุอุมัร - บันทึกโดย อิบนุอบีชัยบะฮ์ และอัล-บัยฮะกีย์)
+            </p>
+          </div>
+        </div>
+
+        <!-- Recommended Sunnah Dua Carousel During Sa'i -->
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-amber-50/40 dark:from-slate-800/90 dark:via-slate-900 dark:to-slate-800/90 border-2 border-emerald-500/30 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950 px-2.5 py-0.5 rounded-full">
+                <i class="fa-solid fa-hands-praying text-amber-500"></i>
+                ดุอาอ์จากอัลกุรอานและซุนนะห์แนะนำขณะเดินสะแอ
+              </span>
+            </div>
+            <button onclick="switchTab(5)" class="text-xs font-semibold text-emerald-700 dark:text-amber-400 hover:underline flex items-center gap-1">
+              <span>เปิดคลังดุอาอ์ทั้งหมด (50 บท)</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </button>
+          </div>
+
+          <div class="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-xl">
+            <button onclick="changeCarouselDua('sai', -1)" class="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-700 hover:bg-emerald-50 text-xs font-bold text-slate-700 dark:text-slate-200 shadow-sm transition flex items-center gap-1">
+              <i class="fa-solid fa-chevron-left"></i> ก่อนหน้า
+            </button>
+            <span id="sai-carousel-index" class="text-xs font-bold text-emerald-800 dark:text-amber-300">บทที่ 1 / 39</span>
+            <button onclick="changeCarouselDua('sai', 1)" class="px-2.5 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-xs font-bold text-white shadow-sm transition flex items-center gap-1">
+              บทถัดไป <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div id="sai-carousel-body" class="bg-white dark:bg-slate-950/70 rounded-xl p-4 border border-emerald-200/70 dark:border-slate-700 text-center space-y-2.5">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="switchTab(2)" class="py-3.5 px-4 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>ย้อนกลับ: ฏอวาฟ</span>
+        </button>
+        <button onclick="switchTab(4)" class="py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-800 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2">
+          <span>ไปขั้นตอนที่ 4: โกน/ตัดผม</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         STEP 4: การโกนหรือตัดผม (الحلق أو التقصير)
+         ========================================== -->
+    <section id="tab-content-4" class="hidden space-y-5">
+      <!-- Hero Banner Step 4 -->
+      <div class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-md border border-emerald-700/40">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold mb-2">
+          <span>ขั้นตอนที่ 4 จาก 4</span>
+          <span>•</span>
+          <span class="font-arabic text-sm">الحلق أو التقصير</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold">การโกนหรือตัดผม และการออกจากการครองอิหฺรอม</h2>
+        <p class="text-xs sm:text-sm text-emerald-100/90 mt-1.5 leading-relaxed">
+          เมื่อเดินสะแอครบ 7 เที่ยวที่เนินเขามัรวะฮ์แล้ว ขั้นตอนสุดท้ายเพื่อปลดเปลื้องจากการครองอิหฺรอม (ตะฮัลลุล - التحلل) คือการโกนหรือตัดผม
+        </p>
+      </div>
+
+      <!-- Gender Specific Rules Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Men Card -->
+        <div id="tahallul-card-male" class="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border-2 transition-all border-emerald-600 dark:border-emerald-500">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-person"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">สำหรับผู้ชาย</h3>
+                <span class="text-xs text-emerald-700 dark:text-emerald-400 font-medium">เลือกปฏิบัติอย่างใดอย่างหนึ่ง</span>
+              </div>
+            </div>
+            <span id="male-active-pill" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500 text-slate-950">โหมดที่คุณเลือก</span>
+          </div>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-emerald-50/80 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">
+              <div class="font-bold text-emerald-900 dark:text-amber-300 flex items-center gap-1.5">
+                <i class="fa-solid fa-award text-amber-500"></i>
+                <span>1. การโกนศีรษะทั้งหมด (อัล-หัลก์ - الحلق)</span>
+              </div>
+              <p class="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                <strong>ประเสริฐที่สุด</strong> เนื่องจากท่านศาสดา (ﷺ) ได้ขอดุอาอ์ขอความเมตตาและอภัยโทษให้แก่ผู้ที่โกนศีรษะถึง 3 ครั้ง
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div class="font-bold text-slate-800 dark:text-slate-100">
+                2. การตัดผมให้สั้น (อัต-ตักซีร - التقصير)
+              </div>
+              <p class="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                หากไม่โกน ต้อง<strong>ตัดเล็มผมให้สั้นลงทั่วทั้งศีรษะ</strong> (ไม่อนุญาตให้ขลิบออกเพียงไม่กี่เส้นหรือตัดเฉพาะด้านใดด้านหนึ่ง) เหมาะสำหรับผู้ที่ทำอุมเราะห์ในช่วงใกล้พิธีฮัจญ์ (แบบตะมัตตุอ์) เพื่อเก็บผมไว้โกนในวันอีด
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Women Card -->
+        <div id="tahallul-card-female" class="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-sm border-2 transition-all border-slate-200 dark:border-slate-800">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-person-dress"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-base text-slate-900 dark:text-white">สำหรับผู้หญิง</h3>
+                <span class="text-xs text-rose-600 dark:text-rose-400 font-medium">ตัดปลายผมประมาณ 1 ข้อนิ้วมือ</span>
+              </div>
+            </div>
+            <span id="female-active-pill" class="hidden text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-500 text-slate-950">โหมดที่คุณเลือก</span>
+          </div>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-rose-50/70 dark:bg-slate-800 border border-rose-200 dark:border-slate-700">
+              <div class="font-bold text-rose-900 dark:text-rose-300 flex items-center gap-1.5">
+                <i class="fa-solid fa-scissors"></i>
+                <span>ตัดปลายผมประมาณ 1 ข้อนิ้วมือ (أنملة)</span>
+              </div>
+              <p class="text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                <strong>สตรีห้ามโกนศีรษะโดยเด็ดขาด</strong> ให้รวบปลายผมทั้งหมดเข้าด้วยกัน แล้วตัดปลายผมออกประมาณ <strong>หนึ่งข้อนิ้วมือ (ประมาณ 1–2 เซนติเมตร)</strong>
+              </p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+              <i class="fa-solid fa-lightbulb text-amber-500 mr-1"></i>สตรีสามารถตัดปลายผมให้ตัวเอง หรือให้มะหฺรอม/เพื่อนสตรีด้วยกันตัดให้ได้ในที่มิดชิดปลอดสายตาชายอื่น
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Action Confirmation Checkbox -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 shadow-md border-2 border-amber-500/50">
+        <label class="flex items-center gap-4 cursor-pointer select-none">
+          <input type="checkbox" onchange="toggleChecklist('tahallul_1')" id="chk-tahallul_1" class="w-6 h-6 rounded-lg text-emerald-600 focus:ring-emerald-500" />
+          <div>
+            <div class="font-bold text-base sm:text-lg text-slate-900 dark:text-white">
+              โกนหรือตัดผมเรียบร้อยแล้ว (เสร็จสมบูรณ์การทำอุมเราะห์)
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              เมื่อทำขั้นตอนนี้แล้ว ข้อห้ามทั้งหมดของการครองอิหฺรอมเป็นอันสิ้นสุดลง สามารถสวมใส่เสื้อผ้าปกติและใช้น้ำหอมได้ตามเดิม
+            </p>
+          </div>
+        </label>
+      </div>
+
+      <!-- Mubarak / Completion Celebration Banner -->
+      <div id="umrah-complete-banner" class="hidden bg-gradient-to-br from-amber-500 via-emerald-800 to-emerald-950 text-white rounded-3xl p-6 text-center shadow-xl border-2 border-amber-300 space-y-4">
+        <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur mx-auto flex items-center justify-center text-3xl text-amber-300 shadow-md">
+          <i class="fa-solid fa-kaaba"></i>
+        </div>
+        <div class="space-y-1">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-200">อัลฮัมดุลิลลาฮ์ • เสร็จสมบูรณ์ตามซุนนะห์</span>
+          <h3 class="text-2xl font-extrabold">อุมเราะห์ของท่านเสร็จสมบูรณ์แล้ว!</h3>
+        </div>
+        <p class="arabic-text text-2xl sm:text-3xl font-bold text-amber-300">
+          تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ صَالِحَ الْأَعْمَالِ
+        </p>
+        <p class="text-xs sm:text-sm text-emerald-100 max-w-md mx-auto leading-relaxed">
+          "ขออัลลอฮ์ทรงตอบรับการงานที่ดีงามจากเราและจากพวกท่านด้วยเถิด" ขอให้ได้รับอุมเราะห์ที่มับรูร (เป็นที่ตอบรับ) และเดินทางกลับโดยสวัสดิภาพครับ
+        </p>
+        <div class="pt-2 flex flex-wrap items-center justify-center gap-2">
+          <button onclick="switchTab(5)" class="px-5 py-2.5 rounded-xl bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm shadow hover:bg-amber-300 transition">
+            <i class="fa-solid fa-book-quran mr-1.5"></i>เปิดคลังดุอาอ์ 50 บท
+          </button>
+          <button onclick="openResetModal()" class="px-5 py-2.5 rounded-xl bg-white/90 text-emerald-950 font-bold text-xs sm:text-sm shadow hover:bg-white transition">
+            <i class="fa-solid fa-rotate-right mr-1.5"></i>เริ่มบันทึกอุมเราะห์ครั้งใหม่
+          </button>
+        </div>
+      </div>
+
+      <!-- Exiting Masjid Dua Card -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-800 space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300">
+            <i class="fa-solid fa-door-open text-amber-500 mr-1"></i>ดุอาอ์เมื่อก้าวออกจากมัสยิด (ก้าวเท้าซ้าย)
+          </span>
+          <button onclick="copyDuaById(29)" class="text-xs text-emerald-700 dark:text-emerald-400 underline">คัดลอก</button>
+        </div>
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-xl p-4 border border-slate-200 dark:border-slate-700 text-center space-y-2">
+          <p class="arabic-text dua-arabic font-bold text-emerald-950 dark:text-amber-300">
+            بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ، اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ
+          </p>
+          <p class="dua-phonetic font-semibold text-emerald-800 dark:text-emerald-300">
+            "บิสมิลลาฮ์ วัศศ่อลาตุ วัสสะลามุ อะลา เราะซูลิลลาฮ์ อัลลอฮุมมะ อินนี อัสอะลุกะ มิน ฟัฎลิก, อัลลอฮุมมะอ์ศิมนี มินัชชัยฏอนิร เราะญีม"
+          </p>
+          <p class="dua-meaning text-slate-600 dark:text-slate-300">
+            ด้วยพระนามของอัลลอฮ์ ขอความจำเริญและสันติจงมีแด่ศาสนทูตของอัลลอฮ์ โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอความโปรดปรานของพระองค์ โอ้อัลลอฮ์ โปรดทรงปกป้องข้าพระองค์จากชัยฏอนที่ถูกสาปแช่งด้วยเถิด (บันทึกโดย มุสลิม 713 และอิบนุมาญะฮ์ 773)
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="switchTab(3)" class="py-3.5 px-4 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>ย้อนกลับ: สะแอ</span>
+        </button>
+        <button onclick="switchTab(5)" class="py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-sm shadow-md flex items-center justify-center gap-2">
+          <i class="fa-solid fa-book-open"></i>
+          <span>คลังดุอาอ์ 50 บท</span>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         STEP 5: คลังดุอาอ์ 50 บท (الأدعية المأثورة من القرآن والسنة)
+         ========================================== -->
+    <section id="tab-content-5" class="hidden space-y-5">
+      <!-- Hero Banner Step 5 -->
+      <div class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-2xl p-5 shadow-md border border-emerald-700/40">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold">
+            <i class="fa-solid fa-book-quran"></i>
+            <span>คลังดุอาอ์จากอัลกุรอานและซุนนะห์ที่เศาะฮีหฺ</span>
+          </div>
+          <span class="text-xs text-emerald-200 font-medium">ทั้งหมด 50 บท • พร้อมแหล่งอ้างอิง</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold">คลังดุอาอ์ 50 บท จากอัลกุรอานและซุนนะห์</h2>
+        <p class="text-xs sm:text-sm text-emerald-100/90 mt-1.5 leading-relaxed">
+          ครบถ้วนทั้งดุอาอ์พิธีอุมเราะห์ 7 บท, ดุอาอ์จากอัลกุรอาน 20 บท, ดุอาอ์ครอบคลุมจากซุนนะห์ (ญะวามิอุลดุอาอ์) 19 บท และดุอาอ์การเดินทาง/มัสยิด/น้ำซัมซัม 4 บท สำหรับอ่านขณะเดินฏอวาฟ สะแอ และตลอดการเดินทาง
+        </p>
+      </div>
+
+      <!-- Search, Display Options & Category Filter Bar -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 shadow-sm border border-slate-200/80 dark:border-slate-800 space-y-3.5 sticky top-[104px] z-30">
+        <!-- Search Input & Display Toggles -->
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <div class="relative flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input
+              type="text"
+              id="dua-search-input"
+              oninput="handleDuaSearch(this.value)"
+              placeholder="ค้นหาชื่อดุอาอ์, คำอ่าน, คำแปล, ซูเราะฮ์ เช่น ร็อบบะนา, บิดามารดา, หนี้สิน, ซัมซัม..."
+              class="w-full pl-9 pr-9 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+            <button onclick="clearDuaSearch()" id="clear-search-btn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Show/Hide Reading & Translation Toggles -->
+          <div class="flex items-center gap-1.5 self-start sm:self-auto">
+            <button onclick="toggleDuaDisplay('showReading')" id="toggle-reading-btn" class="px-3 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5">
+              <i class="fa-solid fa-eye"></i>
+              <span>คำอ่านไทย</span>
+            </button>
+            <button onclick="toggleDuaDisplay('showMeaning')" id="toggle-meaning-btn" class="px-3 py-2 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5">
+              <i class="fa-solid fa-language"></i>
+              <span>คำแปลไทย</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills (Horizontal Scroll on Mobile) -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar" id="dua-category-pills">
+          <button onclick="setDuaCategory('all')" id="cat-btn-all" class="px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition">
+            ทั้งหมด (50)
+          </button>
+          <button onclick="setDuaCategory('umrah')" id="cat-btn-umrah" class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition">
+            พิธีอุมเราะห์ (7)
+          </button>
+          <button onclick="setDuaCategory('quran')" id="cat-btn-quran" class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition">
+            จากอัลกุรอาน (20)
+          </button>
+          <button onclick="setDuaCategory('sunnah')" id="cat-btn-sunnah" class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition">
+            ซุนนะห์ครอบคลุม (19)
+          </button>
+          <button onclick="setDuaCategory('travel')" id="cat-btn-travel" class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition">
+            เดินทาง/มัสยิด/ซัมซัม (4)
+          </button>
+          <button onclick="setDuaCategory('bookmarked')" id="cat-btn-bookmarked" class="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition flex items-center gap-1">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span>รายการโปรด (<span id="bookmark-count-pill">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dua Cards Container -->
+      <div id="dua-library-list" class="space-y-4">
+        <!-- Populated dynamically by renderDuaLibrary() -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       BOTTOM STICKY 5-STEP NAVIGATION BAR
+       ========================================== -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-2xl">
+    <div class="max-w-3xl mx-auto grid grid-cols-5 gap-1 px-1.5 py-1.5">
+      <!-- Tab 1 -->
+      <button onclick="switchTab(1)" id="nav-tab-1" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition">
+        <div class="relative">
+          <i class="fa-solid fa-person-Booth text-sm sm:text-base"></i>
+          <span id="nav-check-1" class="hidden absolute -top-1 -right-2.5 w-3.5 h-3.5 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center"><i class="fa-solid fa-check"></i></span>
+        </div>
+        <span class="text-[10px] sm:text-xs font-bold mt-0.5">1. อิหฺรอม</span>
+        <span class="text-[9px] opacity-75 font-arabic hidden sm:inline">الإحرام</span>
+      </button>
+
+      <!-- Tab 2 -->
+      <button onclick="switchTab(2)" id="nav-tab-2" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition">
+        <div class="relative flex items-center">
+          <i class="fa-solid fa-kaaba text-sm sm:text-base"></i>
+          <span id="nav-badge-2" class="text-[9px] font-bold px-1 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 ml-0.5">0/7</span>
+        </div>
+        <span class="text-[10px] sm:text-xs font-bold mt-0.5">2. ฏอวาฟ</span>
+        <span class="text-[9px] opacity-75 font-arabic hidden sm:inline">الطواف</span>
+      </button>
+
+      <!-- Tab 3 -->
+      <button onclick="switchTab(3)" id="nav-tab-3" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition">
+        <div class="relative flex items-center">
+          <i class="fa-solid fa-person-walking text-sm sm:text-base"></i>
+          <span id="nav-badge-3" class="text-[9px] font-bold px-1 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 ml-0.5">0/7</span>
+        </div>
+        <span class="text-[10px] sm:text-xs font-bold mt-0.5">3. สะแอ</span>
+        <span class="text-[9px] opacity-75 font-arabic hidden sm:inline">السعي</span>
+      </button>
+
+      <!-- Tab 4 -->
+      <button onclick="switchTab(4)" id="nav-tab-4" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition">
+        <div class="relative">
+          <i class="fa-solid fa-scissors text-sm sm:text-base"></i>
+          <span id="nav-check-4" class="hidden absolute -top-1 -right-2.5 w-3.5 h-3.5 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center"><i class="fa-solid fa-check"></i></span>
+        </div>
+        <span class="text-[10px] sm:text-xs font-bold mt-0.5">4. ตัดผม</span>
+        <span class="text-[9px] opacity-75 font-arabic hidden sm:inline">الحلق</span>
+      </button>
+
+      <!-- Tab 5: Sunnah Duas Library -->
+      <button onclick="switchTab(5)" id="nav-tab-5" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition">
+        <div class="relative flex items-center">
+          <i class="fa-solid fa-book-quran text-sm sm:text-base text-amber-500"></i>
+          <span class="text-[9px] font-bold px-1 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 ml-0.5">50</span>
+        </div>
+        <span class="text-[10px] sm:text-xs font-bold mt-0.5">5. คลังดุอาอ์</span>
+        <span class="text-[9px] opacity-75 font-arabic hidden sm:inline">الأدعية</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       CUSTOM RESET CONFIRMATION MODAL (No alert/confirm)
+       ========================================== -->
+  <div id="reset-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-800 text-center space-y-4">
+      <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-950/80 text-red-600 dark:text-red-400 mx-auto flex items-center justify-center text-xl">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg text-slate-900 dark:text-white">รีเซ็ตข้อมูลการทำอุมเราะห์?</h3>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+          ข้อมูลเช็กลิสต์ ตัวนับรอบฏอวาฟ และตัวนับรอบสะแอทั้งหมดจะถูกล้างเป็นศูนย์เพื่อเริ่มต้นใหม่
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-2.5 pt-1">
+        <button onclick="closeResetModal()" class="py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-xs sm:text-sm">
+          ยกเลิก
+        </button>
+        <button onclick="confirmResetAll()" class="py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs sm:text-sm shadow">
+          ยืนยันรีเซ็ต
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       TOAST NOTIFICATION BOX
+       ========================================== -->
+  <div id="toast-box" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900/95 dark:bg-emerald-800 text-white text-xs sm:text-sm font-medium shadow-xl border border-white/10">
+    <i class="fa-solid fa-circle-check text-amber-400"></i>
+    <span id="toast-message">บันทึกข้อมูลเรียบร้อย</span>
+  </div>
+
+  <!-- ==========================================
+       APPLICATION JAVASCRIPT LOGIC
+       ========================================== -->
+  <script>
+    // Storage Key
+    const STORAGE_KEY = 'umrah_sunnah_guide_state_v3';
+
+    // Complete Authentic 30 Duas Dataset from Quran & Sunnah
+    const SUNNAH_DUAS = [
+      // ==========================================
+      // หมวดที่ 1: พิธีอุมเราะห์ (umrah - 7 บท: #1 - #7)
+      // ==========================================
+      {
+        id: 1,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'คำกล่าวตั้งเจตนา (เนียต) ทำอุมเราะห์',
+        when: 'กล่าวเมื่อเดินทางถึงเขตมีกอต (หรือบนเครื่องบินก่อนเข้าเขตมีกอต)',
+        arabic: 'لَبَّيْكَ اللّهُمَّ عُمْرَةً',
+        reading: 'ลับบัยกัลลอฮุมมะ อุมเราะตัน',
+        meaning: 'ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ด้วยการทำอุมเราะห์',
+        source: 'บันทึกโดย มุสลิม (1251)'
+      },
+      {
+        id: 2,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'คำกล่าวตั้งเงื่อนไขอิหฺรอม (กรณีเกรงว่าจะมีอุปสรรค)',
+        when: 'กล่าวต่อท้ายเนียตเมื่อมีอาการเจ็บป่วยหรือเกรงว่าจะทำอุมเราะห์ไม่จบ',
+        arabic: 'اللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي',
+        reading: 'อัลลอฮุมมะ มะหิลลี ฮัยซุ ฮะบัสตานี',
+        meaning: 'โอ้อัลลอฮ์ สถานที่ปลดเปลื้องอิหฺรอมของข้าพระองค์ คือที่ใดก็ตามที่พระองค์ทรงกักขวางข้าพระองค์ไว้',
+        source: 'บันทึกโดย อัล-บุคอรีย์ (5089) และ มุสลิม (1207)'
+      },
+      {
+        id: 3,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'คำกล่าวตัลบียะฮ์ (التلبية)',
+        when: 'กล่าวต่อเนื่องหลังครองอิหฺรอมไปจนกว่าจะเห็นกะอ์บะฮ์และเริ่มเดินฏอวาฟ',
+        arabic: 'لَبَّيْكَ اللّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ',
+        reading: 'ลับบัยกัลลอฮุมมะ ลับบัยก์, ลับบัยกะ ลาชะรีกะ ละกะ ลับบัยก์, อินนัลฮัมดะ วันนิอ์มะตะ ละกะ วัลมุลก์, ลาชะรีกะ ลัก',
+        meaning: 'ข้าพระองค์ขอตอบรับคำเรียกร้องของพระองค์ โอ้อัลลอฮ์ ข้าพระองค์ขอตอบรับ ข้าพระองค์ขอตอบรับโดยไม่มีภาคีใดๆ สำหรับพระองค์ แท้จริงมวลการสรรเสริญ ความโปรดปราน และอำนาจกรรมสิทธิ์นั้นเป็นของพระองค์ ไม่มีภาคีใดๆ สำหรับพระองค์',
+        source: 'บันทึกโดย อัล-บุคอรีย์ (1549) และ มุสลิม (1184)'
+      },
+      {
+        id: 4,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'คำกล่าวเมื่อเริ่มต้นฏอวาฟที่แนวหินดำ',
+        when: 'เมื่อเดินตรงแนวหินดำ พร้อมยกมือขวาชี้ไปทางหินดำ 1 ครั้ง',
+        arabic: 'بِسْمِ اللهِ وَاللهُ أَكْبَرُ',
+        reading: 'บิสมิลลาฮิ วัลลอฮุอักบัร',
+        meaning: 'ด้วยพระนามของอัลลอฮ์ และอัลลอฮ์ทรงยิ่งใหญ่ที่สุด (ในรอบถัดๆ ไปกล่าว اللهُ أَكْبَرُ - อัลลอฮุอักบัร)',
+        source: 'บันทึกโดย อัล-บุคอรีย์ (1613) และรายงานจากท่านอิบนุ อุมัร (อัล-บัยฮะกีย์)'
+      },
+      {
+        id: 5,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'ดุอาอ์ระหว่างมุมยะมานีและมุมหินดำ',
+        when: 'อ่านทุกรอบของการฏอวาฟในช่วงระหว่างมุมยะมานีถึงมุมหินดำ',
+        arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
+        reading: 'ร็อบบะนา อาตินา ฟิดดุนยา หะซะนะฮ์ วะฟิลอาคิเราะติ หะซะนะฮ์ วะกินา อะซาบันนาร',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดประทานสิ่งดีงามแก่เราในโลกนี้ และสิ่งดีงามในโลกหน้า และโปรดคุ้มครองเราให้พ้นจากการลงโทษแห่งไฟนรกด้วยเถิด',
+        source: 'อัล-บะเกาะเราะฮ์ (2:201) และบันทึกโดย อะบู ดาวูด (1892)'
+      },
+      {
+        id: 6,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'คำอ่านเมื่อเดินเข้าใกล้เนินเขาซอฟา (เฉพาะครั้งแรก)',
+        when: 'อ่านเฉพาะครั้งแรกเมื่อเดินเข้าใกล้เนินเขาซอฟาเพื่อเริ่มเดินสะแอเที่ยวที่ 1',
+        arabic: 'إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا ۚ وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللهَ شَاكِرٌ عَلِيمٌ ❖ أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ',
+        reading: 'อินนัศศ่อฟา วัลมัรวะตะ มิน ชะอาอิริลลาฮ์... อับดะอุ บิมา บะดะอัลลอฮุ บิฮี',
+        meaning: 'แท้จริงซอฟาและมัรวะฮ์นั้นเป็นส่วนหนึ่งจากสัญลักษณ์ทั้งหลายของอัลลอฮ์... ฉันขอเริ่มต้นด้วยสิ่งที่อัลลอฮ์ทรงเริ่มต้น',
+        source: 'อัล-บะเกาะเราะฮ์ (2:158) และบันทึกโดย มุสลิม (1218)'
+      },
+      {
+        id: 7,
+        category: 'umrah',
+        categoryLabel: 'พิธีอุมเราะห์',
+        title: 'ดุอาอ์และซิกิรบนเนินเขาซอฟาและมัรวะฮ์ (อ่าน 3 ครั้ง)',
+        when: 'ยืนหันหน้าไปทางกะอ์บะฮ์ ยกมือกล่าว 3 ครั้ง โดยขอดุอาอ์ส่วนตัวคั่นกลาง',
+        arabic: 'اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ',
+        reading: 'อัลลอฮุอักบัร อัลลอฮุอักบัร อัลลอฮุอักบัร, ลาอิลาฮะ อิลลัลลอฮุ วะห์ดะฮู ลาชะรีกะละฮ์, ละฮุลมุลกุ วะละฮุลฮัมดุ วะฮุวะ อะลา กุลลิ ชัยอิน ก่อดีร, ลาอิลาฮะ อิลลัลลอฮุ วะห์ดะฮ์, อันญะซะ วะอ์ดะฮ์, วะนะศ่อเราะ อับดะฮ์, วะฮะซะมัล อะห์ซาบะ วะห์ดะฮ์',
+        meaning: 'อัลลอฮ์ทรงยิ่งใหญ่ที่สุด (3 ครั้ง) ไม่มีพระเจ้าอื่นใดนอกจากอัลลอฮ์เพียงพระองค์เดียว ไม่มีภาคีใดๆ สำหรับพระองค์ อำนาจกรรมสิทธิ์และมวลการสรรเสริญเป็นของพระองค์ และพระองค์ทรงมีเดชานุภาพเหนือทุกสิ่ง ไม่มีพระเจ้าอื่นใดนอกจากอัลลอฮ์เพียงพระองค์เดียว พระองค์ทรงปฏิบัติตามสัญญาของพระองค์ ทรงช่วยเหลือบ่าวของพระองค์ และทรงพิชิตกลุ่มชนที่เป็นศัตรูด้วยพระองค์เพียงผู้เดียว',
+        source: 'บันทึกโดย มุสลิม (1218)'
+      },
+
+      // ==========================================
+      // หมวดที่ 2: ดุอาอ์จากอัลกุรอาน (quran - 10 บท: #8 - #17)
+      // ==========================================
+      {
+        id: 8,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอการอภัยโทษและไม่ให้แบกรับสิ่งที่เกินกำลัง',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ หรือวิงวอนขอต่ออัลลอฮ์ในทุกโอกาส',
+        arabic: 'رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+        reading: 'ร็อบบะนา ลา ตุอาคิซนา อิน นะซีนา เอา อัคฏอนา, ร็อบบะนา วะลา ตะห์มิล อะลัยนา อิศร็อน กะมา หะมัลตะฮู อะลัลละซีนะ มิน ก๊อบลินา, ร็อบบะนา วะลา ตุหัมมิลนา มา ลา ฏอก่อตะ ละนา บิฮี, วะอ์ฟุ อันนา วัฆฟิร ละนา วัรหัมนา, อันตะ เมาลานา ฟันศุรนา อะลัล ก๊อวมิล กาฟิรีน',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดอย่าเอาโทษแก่เราหากเราลืมหรือพลั้งเผลอ โอ้พระผู้เป็นเจ้าของเรา และโปรดอย่าให้เราแบกรับภาระหนักเหมือนดังที่พระองค์เคยให้บรรดาผู้ก่อนหน้าเราแบกรับ โอ้พระผู้เป็นเจ้าของเรา และโปรดอย่าให้เราแบกรับสิ่งที่เราไม่มีกำลังจะรับได้ และโปรดอภัยแก่เรา โปรดยกโทษแก่เรา และโปรดเมตตาแก่เรา พระองค์คือนายของเรา ดังนั้นโปรดช่วยเหลือเราให้ได้รับชัยชนะเหนือกลุ่มชนผู้ปฏิเสธศรัทธาด้วยเถิด',
+        source: 'ซูเราะฮ์ อัล-บะเกาะเราะฮ์ (2:286)'
+      },
+      {
+        id: 9,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอให้หัวใจมั่นคงในทางนำ',
+        when: 'ดุอาอ์ขอความมั่นคงในอีมานและความเมตตาจากอัลลอฮ์',
+        arabic: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً ۚ إِنَّكَ أَنْتَ الْوَهَّابُ',
+        reading: 'ร็อบบะนา ลา ตุซิฆ กุลูบะนา บะอ์ดะ อิซ ฮะดัยตะนา วะฮับ ละนา มิลละดุนกะ เราะห์มะตัน อินนะกะ อันตัล วะฮ์ฮาบ',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดอย่าให้หัวใจของเราเอนเอียงออกจากความจริงหลังจากที่พระองค์ได้ทรงชี้แนะทางนำแก่เราแล้ว และโปรดประทานความเมตตาจากพระองค์ท่านแก่เราด้วยเถิด แท้จริงพระองค์คือผู้ทรงประทานให้อย่างมากมาย',
+        source: 'ซูเราะฮ์ อาลิอิมรอน (3:8)'
+      },
+      {
+        id: 10,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอการอภัยโทษในบาปและขอความมั่นคง',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ และขอความเข้มแข็งในศาสนา',
+        arabic: 'رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ',
+        reading: 'ร็อบบะนัฆฟิร ละนา ซุนูบะนา วะอิสรอฟะนา ฟี อัมรินา วะซับบิต อักดามะนา วันศุรนา อะลัล ก๊อวมิล กาฟิรีน',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดทรงอภัยโทษให้แก่เราซึ่งความผิดบาปของเรา และการล่วงเกินขอบเขตในกิจการงานของเรา และโปรดทรงให้เท้าของเรามั่นคง และโปรดทรงช่วยเหลือเราให้ได้รับชัยชนะเหนือกลุ่มชนผู้ปฏิเสธศรัทธาด้วยเถิด',
+        source: 'ซูเราะฮ์ อาลิอิมรอน (3:147)'
+      },
+      {
+        id: 11,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ดุอาอ์สารภาพผิดและขอความเมตตา (ดุอาอ์นบีอาดัม)',
+        when: 'อ่านเพื่อเตาบะฮ์ตัวและขออภัยโทษต่ออัลลอฮ์ ณ แผ่นดินฮะรอม',
+        arabic: 'رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ',
+        reading: 'ร็อบบะนา ซ่อลัมนา อันฟุซะนา วะอิลลัม ต็ฆฟิร ละนา วะตัรหัมนา ละนะกูนันนะ มินัล คอซิรีน',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา พวกเราได้อธรรมต่อตัวของเราเองแล้ว และหากพระองค์ไม่ทรงอภัยโทษให้แก่เราและไม่ทรงเมตตาเราแล้ว แน่นอนพวกเราย่อมต้องอยู่ในหมู่ผู้ขาดทุนอย่างแน่นอน',
+        source: 'ซูเราะฮ์ อัล-อะอ์รอฟ (7:23)'
+      },
+      {
+        id: 12,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอความรื่นรมย์แก่สายตาในคู่ครองและลูกหลาน',
+        when: 'ดุอาอ์เพื่อครอบครัว คู่ครอง และลูกหลานขณะเดินฏอวาฟและสะแอ',
+        arabic: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
+        reading: 'ร็อบบะนา ฮับ ละนา มิน อัซวาญินา วะซุรริยยาตินา กุรเราะตะ อะอ์ยุนิน วัญอัลนา ลิลมุตตะกีนะ อิมามา',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดประทานแก่เราซึ่งคู่ครองของเราและลูกหลานของเราให้เป็นที่รื่นรมย์แก่สายตาของเรา และโปรดทรงให้เราเป็นผู้นำของบรรดาผู้ยำเกรงทั้งหลายด้วยเถิด',
+        source: 'ซูเราะฮ์ อัล-ฟุรกอน (25:74)'
+      },
+      {
+        id: 13,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอให้เป็นผู้ดำรงละหมาดและอภัยโทษแก่บิดามารดา (ดุอาอ์นบีอิบรอฮีม)',
+        when: 'อ่านขณะฏอวาฟรอบกะอ์บะฮ์ที่ท่านนบีอิบรอฮีมสร้าง และวิงวอนให้บิดามารดา',
+        arabic: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي ۚ رَبَّنَا وَتَقَبَّلْ دُعَاءِ ۝ رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ',
+        reading: 'ร็อบบิญอัลนี มุกีมัศศ่อลาติ วะมิน ซุรริยยะตี ร็อบบะนา วะตะก๊อบบัล ดุอาอ์ ۝ ร็อบบะนัฆฟิร ลี วะลิวาลิดัยยะ วะลิลมุอ์มินีนะ เยามะ ยะกูมุล หิซาบ',
+        meaning: 'โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงให้ข้าพระองค์เป็นผู้ดำรงการละหมาด และจากลูกหลานของข้าพระองค์ด้วย โอ้พระผู้เป็นเจ้าของเรา โปรดทรงตอบรับคำวิงวอนของข้าพระองค์ด้วยเถิด ۝ โอ้พระผู้เป็นเจ้าของเรา โปรดทรงอภัยโทษให้แก่ข้าพระองค์ แก่บิดามารดาของข้าพระองค์ และแก่บรรดาผู้ศรัทธาทั้งหลายในวันที่การคิดบัญชีมาถึงด้วยเถิด',
+        source: 'ซูเราะฮ์ อิบรอฮีม (14:40-41)'
+      },
+      {
+        id: 14,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอให้พระองค์ทรงตอบรับการงานและอภัยโทษ',
+        when: 'ดุอาอ์ที่ท่านนบีอิบรอฮีมและนบีอิสมาอีลกล่าวขณะสร้างกะอ์บะฮ์ เหมาะอย่างยิ่งหลังเสร็จสิ้นอิบาดะฮ์',
+        arabic: 'رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ ۝ وَتُبْ عَلَيْنَا ۖ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ',
+        reading: 'ร็อบบะนา ตะก๊อบบัล มินนา อินนะกะ อันตัส ซะมีอุล อะลีม ۝ วะตุบ อะลัยนา อินนะกะ อันตัต เตาวาบุร เราะฮีม',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดทรงตอบรับจากพวกเราด้วยเถิด แท้จริงพระองค์คือผู้ทรงได้ยิน ผู้ทรงรอบรู้ ۝ และโปรดทรงอภัยโทษแก่พวกเราด้วยเถิด แท้จริงพระองค์คือผู้ทรงอภัยโทษเสมอ ผู้ทรงเมตตาเสมอ',
+        source: 'ซูเราะฮ์ อัล-บะเกาะเราะฮ์ (2:127-128)'
+      },
+      {
+        id: 15,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอความเมตตาและทางออกที่ถูกต้องในกิจการงาน',
+        when: 'อ่านขณะวิงวอนขอทางออกและความสำเร็จในชีวิตและศาสนา',
+        arabic: 'رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا',
+        reading: 'ร็อบบะนา อาตินา มิลละดุนกะ เราะห์มะตัน วะฮัยยิอ์ ละนา มิน อัมรินา เราะชะดา',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดประทานความเมตตาจากพระองค์แก่เรา และโปรดจัดเตรียมทางออกที่ถูกต้องในกิจการงานของเราแก่เราด้วยเถิด',
+        source: 'ซูเราะฮ์ อัล-กะฮ์ฟิ (18:10)'
+      },
+      {
+        id: 16,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขออภัยโทษแก่ตนเองและพี่น้องผู้ศรัทธา และให้หัวใจบริสุทธิ์ไร้ความอคติ',
+        when: 'อ่านเพื่อขอดุอาอ์ให้พี่น้องมุสลิมและขัดเกลาจิตใจให้บริสุทธิ์',
+        arabic: 'رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَحِيمٌ',
+        reading: 'ร็อบบะนัฆฟิร ละนา วะลิอิควานินัล ละซีนะ ซะบะกูนา บิลอีมานิ วะลา ตัญอัล ฟี กุลูบินา ฆิลลัน ลิลละซีนะ อามะนู ร็อบบะนา อินนะกะ เราะอูฟุร เราะฮีม',
+        meaning: 'โอ้พระผู้เป็นเจ้าของเรา โปรดทรงอภัยโทษให้แก่เรา และแก่พี่น้องของเราที่ได้ล่วงหน้าเรามาก่อนด้วยความศรัทธา และโปรดอย่าได้ทรงให้มีความเคียดแค้นชิงชังในหัวใจของเราต่อบรรดาผู้ศรัทธาเลย โอ้พระผู้เป็นเจ้าของเรา แท้จริงพระองค์คือผู้ทรงเอ็นดูเมตตาอย่างยิ่ง',
+        source: 'ซูเราะฮ์ อัล-ฮัชรฺ (59:10)'
+      },
+      {
+        id: 17,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอให้เปิดอกให้กว้าง ให้งานง่ายดาย และเพิ่มพูนความรู้',
+        when: 'อ่านเพื่อขอความปลอดโปร่งใจ ความง่ายดายในภารกิจ และวิชาความรู้',
+        arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي ۝ وَيَسِّرْ لِي أَمْرِي ❖ رَبِّ زِدْنِي عِلْمًا',
+        reading: 'ร็อบบิช เราะห์ ลี ศ็อดรี ۝ วะยัสซิร ลี อัมรี ❖ ร็อบบิ ซิดนี อิลมา',
+        meaning: 'โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงเปิดอกของข้าพระองค์ให้กว้าง และโปรดทรงให้กิจการงานของข้าพระองค์ง่ายดายสำหรับข้าพระองค์ ❖ โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงเพิ่มพูนความรู้ให้แก่ข้าพระองค์ด้วยเถิด',
+        source: 'ซูเราะฮ์ ฏอฮา (20:25-26, 114)'
+      },
+
+      // ==========================================
+      // หมวดที่ 3: ดุอาอ์ครอบคลุมจากซุนนะห์ (sunnah - 9 บท: #18 - #26)
+      // ==========================================
+      {
+        id: 18,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ซัยยิดุลอิสติฆฟาร (สุดยอดแห่งบทขออภัยโทษ)',
+        when: 'แนะนำให้อ่านขณะเดินฏอวาฟ สะแอ และเป็นซิกิรเวลาเช้า-เย็น',
+        arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
+        reading: 'อัลลอฮุมมะ อันตะ ร็อบบี ลาอิลาฮะ อิลลา อันตะ, เคาะลักตะนี วะอะนา อับดุกะ, วะอะนา อะลา อะฮ์ดิกะ วะวะอ์ดิกะ มัสตะฏอตตุ, อะอูซุบิกะ มิน ชัรริ มา ศ่อนะอ์ตุ, อะบูอุ ละกะ บินิอ์มะติกะ อะลัยยะ, วะอะบูอุ ละกะ บิซันบี ฟัฆฟิรลี, ฟะอินนะฮู ลา ยัฆฟิรุซ ซุนูบะ อิลลา อันตะ',
+        meaning: 'โอ้อัลลอฮ์ พระองค์คือพระผู้อภิบาลของข้าพระองค์ ไม่มีพระเจ้าอื่นใดนอกจากพระองค์ พระองค์ทรงสร้างข้าพระองค์และข้าพระองค์เป็นบ่าวของพระองค์ ข้าพระองค์จะดำรงอยู่บนพันธสัญญาและคำมั่นสัญญาของพระองค์ตราบเท่าที่ข้าพระองค์มีความสามารถ ข้าพระองค์ขอความคุ้มครองต่อพระองค์ให้พ้นจากความชั่วร้ายที่ข้าพระองค์ได้กระทำไว้ ข้าพระองค์ขอยอมรับต่อพระองค์ถึงความโปรดปรานของพระองค์ที่มีต่อข้าพระองค์ และขอยอมรับในความผิดบาปของข้าพระองค์ ดังนั้นโปรดทรงอภัยโทษให้แก่ข้าพระองค์ด้วยเถิด เพราะแท้จริงไม่มีผู้ใดอภัยโทษในความผิดบาปทั้งหลายได้นอกจากพระองค์เท่านั้น',
+        source: 'บันทึกโดย อัล-บุคอรีย์ (6306)'
+      },
+      {
+        id: 19,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอความดีงามทั้งมวลทั้งในปัจจุบันและอนาคต',
+        when: 'ดุอาอ์ที่ท่านนบี ﷺ สอนท่านหญิงอาอิชะฮ์ให้อ่านเพราะรวบรวมทุกความดีงาม',
+        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ خَيْرِ مَا سَأَلَكَ عَبْدُكَ وَنَبِيُّكَ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا عَاذَ بِهِ عَبْدُكَ وَنَبِيُّكَ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَسْأَلُكَ أَنْ تَجْعَلَ كُلَّ قَضَاءٍ قَضَيْتَهُ لِي خَيْرًا',
+        reading: 'อัลลอฮุมมะ อินนี อัสอะลุกะ มินัล ค็อยริ กุลลิฮี อาญิลิฮี วะอาญิลิฮี มา อะลิมตุ มินฮุ วะมา ลัม อะอ์ลัม, วะอะอูซุบิกะ มินัชชัรริ กุลลิฮี อาญิลิฮี วะอาญิลิฮี มา อะลิมตุ มินฮุ วะมา ลัม อะอ์ลัม, อัลลอฮุมมะ อินนี อัสอะลุกะ มิน ค็อยริ มา ซะอะละกะ อับดุกะ วะนะบิยยุกะ, วะอะอูซุบิกะ มิน ชัรริ มา อาซะ บิฮี อับดุกะ วะนะบิยยุกะ, อัลลอฮุมมะ อินนี อัสอะลุกัล ญันนะตะ วะมา ก่อรเราะบะ อิลัยฮา มิน ก๊อลิน เอา อะมะลิน, วะอะอูซุบิกะ มินันนาริ วะมา ก่อรเราะบะ อิลัยฮา มิน ก๊อลิน เอา อะมะลิน, วะอัสอะลุกะ อัน ตัญอะละ กุลละ ก่อฎออิน ก่อฎ็อยตะฮู ลี ค็อยรอน',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอต่อพระองค์ซึ่งความดีงามทั้งหมด ทั้งในปัจจุบันและอนาคต ทั้งที่ข้าพระองค์รู้และไม่รู้ และขอความคุ้มครองต่อพระองค์ให้พ้นจากความชั่วร้ายทั้งหมด ทั้งในปัจจุบันและอนาคต ทั้งที่ข้าพระองค์รู้และไม่รู้ โอ้อัลลอฮ์ ข้าพระองค์ขอต่อพระองค์จากสิ่งดีงามที่บ่าวและนบีของพระองค์ได้ขอ และขอความคุ้มครองให้พ้นจากความชั่วร้ายที่บ่าวและนบีของพระองค์ได้ขอความคุ้มครอง โอ้อัลลอฮ์ ข้าพระองค์ขอสวนสวรรค์และคำพูดหรือการงานที่ทำให้เข้าใกล้สวรรค์ และขอความคุ้มครองให้พ้นจากไฟนรกและคำพูดหรือการงานที่ทำให้เข้าใกล้นรก และขอให้ทุกการกำหนดที่พระองค์ทรงกำหนดแก่ข้าพระองค์เป็นสิ่งดีงามด้วยเถิด',
+        source: 'บันทึกโดย อิบนุ มาญะฮ์ (3846) - เศาะฮีหฺ'
+      },
+      {
+        id: 20,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอทางนำ ความยำเกรง ความบริสุทธิ์ และความพอเพียง',
+        when: 'สั้น กระชับ และครอบคลุม เหมาะสำหรับท่องจำขณะเดินฏอวาฟและสะแอ',
+        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى',
+        reading: 'อัลลอฮุมมะ อินนี อัสอะลุกัล ฮุดา วัตตุกอ วัลอะฟาฟะ วัลฆินา',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอต่อพระองค์ซึ่งทางนำ ความยำเกรง ความบริสุทธิ์ผุดผ่อง (การห่างไกลจากสิ่งต้องห้าม) และความพอเพียง (ไม่พึ่งพามนุษย์)',
+        source: 'บันทึกโดย มุสลิม (2721)'
+      },
+      {
+        id: 21,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอความดีงามในศาสนา โลกนี้ และโลกหน้า',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ หรือบนเนินเขาซอฟา-มัรวะฮ์',
+        arabic: 'اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي، وَاجْعَلِ الْحَيَاةَ زِيَادَةً لِي فِي كُلِّ خَيْرٍ، وَاجْعَلِ الْمَوْتَ رَاحَةً لِي مِنْ كُلِّ شَرٍّ',
+        reading: 'อัลลอฮุมมะ อัศลิห์ ลี ดีนิยัลละซี ฮุวะ อิศมะตุ อัมรี, วะอัศลิห์ ลี ดุนยายัลละตี ฟีฮา มะอาชี, วะอัศลิห์ ลี อาคิเราะติยัลละตี ฟีฮา มะอาดี, วัญอะลิล หะยาตะ ซิยาดะตัน ลี ฟี กุลลิ ค็อยริน, วัญอะลิล เมาตะ รอหะตัน ลี มิน กุลลิ ชัรริน',
+        meaning: 'โอ้อัลลอฮ์ โปรดทรงปรับปรุงศาสนาของข้าพระองค์ซึ่งเป็นหลักยึดเหนี่ยวแห่งกิจการงานของข้าพระองค์ และโปรดทรงปรับปรุงโลกนี้ของข้าพระองค์ซึ่งเป็นที่ดำรงชีพของข้าพระองค์ และโปรดทรงปรับปรุงโลกหน้าของข้าพระองค์ซึ่งเป็นที่กลับไปของข้าพระองค์ และโปรดทรงให้การมีชีวิตอยู่เป็นการเพิ่มพูนในทุกความดีงามแก่ข้าพระองค์ และโปรดทรงให้ความตายเป็นการพักผ่อนของข้าพระองค์จากความชั่วร้ายทั้งปวงด้วยเถิด',
+        source: 'บันทึกโดย มุสลิม (2720)'
+      },
+      {
+        id: 22,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอให้หัวใจมั่นคงในศาสนา',
+        when: 'ดุอาอ์ที่ท่านนบี ﷺ ขออยู่เป็นประจำมากที่สุด',
+        arabic: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ',
+        reading: 'ยา มุกัลลิบัล กุลูบ ซับบิต กัลบี อะลา ดีนิก',
+        meaning: 'โอ้ผู้ทรงพลิกผันหัวใจทั้งหลาย โปรดทรงให้หัวใจของข้าพระองค์มั่นคงอยู่บนศาสนาของพระองค์ด้วยเถิด',
+        source: 'บันทึกโดย อัต-ติรมิซีย์ (2140) - เศาะฮีหฺ'
+      },
+      {
+        id: 23,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอความช่วยเหลือในการรำลึก ขอบคุณ และทำอิบาดะฮ์อย่างดีงาม',
+        when: 'ดุอาอ์ที่ท่านนบี ﷺ สั่งเสียท่านมุอาซให้อ่านหลังละหมาดและในขณะวิงวอน',
+        arabic: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ، وَشُكْرِكَ، وَحُسْنِ عِبَادَتِكَ',
+        reading: 'อัลลอฮุมมะ อะอินนี อะลา ซิกริกะ, วะชุกริกะ, วะหุสนิ อิบาดะติก',
+        meaning: 'โอ้อัลลอฮ์ โปรดทรงช่วยเหลือข้าพระองค์ในการรำลึกถึงพระองค์ การขอบคุณพระองค์ และการทำอิบาดะฮ์ต่อพระองค์อย่างดีงามด้วยเถิด',
+        source: 'บันทึกโดย อะบู ดาวูด (1522) - เศาะฮีหฺ'
+      },
+      {
+        id: 24,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอการอภัยโทษและสุขภาพที่สมบูรณ์ปลอดภัยทั้งโลกนี้และโลกหน้า',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ และวิงวอนขอความพ้นภัย (อัล-อาฟิยะฮ์)',
+        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي',
+        reading: 'อัลลอฮุมมะ อินนี อัสอะลุกัล อัฟวะ วัลอาฟิยะตะ ฟิดดุนยา วัลอาคิเราะฮ์, อัลลอฮุมมะ อินนี อัสอะลุกัล อัฟวะ วัลอาฟิยะตะ ฟี ดีนี วะดุนยายะ วะอะฮ์ลี วะมาลี, อัลลอฮุมมัสตุร เอาะรอตี วะอามิน เรอะอาตี',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอการอภัยและความปลอดภัยในโลกนี้และโลกหน้า โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอการอภัยและความปลอดภัยในศาสนา โลกนี้ ครอบครัว และทรัพย์สินของข้าพระองค์ โอ้อัลลอฮ์ โปรดทรงปกปิดข้อบกพร่องของข้าพระองค์ และโปรดทรงให้ข้าพระองค์ปลอดภัยจากความหวาดกลัวด้วยเถิด',
+        source: 'บันทึกโดย อะบู ดาวูด (5074) และ อิบนุ มาญะฮ์ (3871) - เศาะฮีหฺ'
+      },
+      {
+        id: 25,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอความคุ้มครองจากความทุกข์กังวล ความอ่อนแอ และหนี้สิน',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ หรือเมื่อมีความทุกข์ร้อนใจและภาระหนี้สิน',
+        arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ',
+        reading: 'อัลลอฮุมมะ อินนี อะอูซุบิกะ มินัล ฮัมมิ วัลหะซัน, วัลอัจซิ วัลกะซัล, วัลบุคลิ วัลญุบนิ, วะฎ่อละอิด ดัยนิ, วะเฆาะละบะติร ริญาล',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอความคุ้มครองต่อพระองค์ให้พ้นจากความวิตกกังวลและความเศร้าโศก จากความไร้สามารถและความเกียจคร้าน จากความตระหนี่ถี่เหนียวและความขลาดกลัว จากภาระหนี้สินที่หนักอึ้ง และจากการถูกผู้คนข่มเหงรังแก',
+        source: 'บันทึกโดย อัล-บุคอรีย์ (6369)'
+      },
+      {
+        id: 26,
+        category: 'sunnah',
+        categoryLabel: 'ซุนนะห์ครอบคลุม',
+        title: 'ขอความคุ้มครองจากการสูญเสียความโปรดปรานและการลงโทษฉับพลัน',
+        when: 'อ่านขณะเดินฏอวาฟ สะแอ เพื่อขอให้เนียะอ์มัตความโปรดปรานคงอยู่เสมอ',
+        arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ، وَتَحَوُّلِ عَافِيَتِكَ، وَفُجَاءَةِ نِقْمَتِكَ، وَجَمِيعِ سَخَطِكَ',
+        reading: 'อัลลอฮุมมะ อินนี อะอูซุบิกะ มิน ซะวาลิ นิอ์มะติกะ, วะตะหะวุลลิ อาฟิยะติกะ, วะฟุญาอะติ นิกมะติกะ, วะญะมีอิ ซะเคาะฏิก',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอความคุ้มครองต่อพระองค์ให้พ้นจากการสูญเสียความโปรดปรานของพระองค์ จากการผันแปรแห่งสุขภาพและความปลอดภัยที่พระองค์ทรงประทาน จากการลงโทษอย่างฉับพลันของพระองค์ และจากความกริ้วโกรธทั้งหมดของพระองค์',
+        source: 'บันทึกโดย มุสลิม (2739)'
+      },
+
+      // ==========================================
+      // หมวดที่ 4: การเดินทาง มัสยิด และน้ำซัมซัม (travel - 4 บท: #27 - #30)
+      // ==========================================
+      {
+        id: 27,
+        category: 'travel',
+        categoryLabel: 'เดินทาง/มัสยิด/ซัมซัม',
+        title: 'ดุอาอ์เดินทาง',
+        when: 'อ่านเมื่อขึ้นนั่งบนรถ เครื่องบิน หรือพาหนะเดินทางไปทำอุมเราะห์',
+        arabic: 'اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى',
+        reading: 'อัลลอฮุอักบัร, อัลลอฮุอักบัร, อัลลอฮุอักบัร, ซุบฮานัลละซี ซัคเคาะเราะ ละนา ฮาซา วะมา กุนนา ละฮู มุกรินีน วะอินนา อิลา ร็อบบินา ละมุนก่อลิบูน, อัลลอฮุมมะ อินนา นัสอะลุกะ ฟี ซะฟะรินา ฮาซัล บิรเราะ วัตตักวา, วะมินัล อะมะลิ มา ตัรฎอ',
+        meaning: 'อัลลอฮ์ทรงยิ่งใหญ่ที่สุด (3 ครั้ง) มหาบริสุทธิ์แด่พระองค์ผู้ทรงทำให้สิ่งนี้บริการแก่เรา ทั้งๆ ที่เราไม่สามารถบังคับมันได้ และแท้จริงเราจะต้องกลับไปหาพระผู้อภิบาลของเรา โอ้อัลลอฮ์ แท้จริงพวกเราขอต่อพระองค์ในการเดินทางครั้งนี้ซึ่งคุณธรรมและความยำเกรง และขอการงานที่พระองค์ทรงพอพระทัย',
+        source: 'บันทึกโดย มุสลิม (1342)'
+      },
+      {
+        id: 28,
+        category: 'travel',
+        categoryLabel: 'เดินทาง/มัสยิด/ซัมซัม',
+        title: 'ดุอาอ์เมื่อก้าวเข้ามัสยิด (ก้าวเท้าขวา)',
+        when: 'ก้าวเท้าขวาเข้าสู่มัสยิดอัลฮะรอมและมัสยิดทั่วไป',
+        arabic: 'بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
+        reading: 'บิสมิลลาฮ์ วัศศ่อลาตุ วัสสะลามุ อะลา เราะซูลิลลาฮ์ อัลลอฮุมมัฟตะห์ ลี อับวาบะ เราะห์มะติก',
+        meaning: 'ด้วยพระนามของอัลลอฮ์ ขอความจำเริญและสันติจงมีแด่ศาสนทูตของอัลลอฮ์ โอ้อัลลอฮ์ โปรดทรงเปิดประตูแห่งความเมตตาของพระองค์แก่ข้าพระองค์ด้วยเถิด',
+        source: 'บันทึกโดย มุสลิม (713)'
+      },
+      {
+        id: 29,
+        category: 'travel',
+        categoryLabel: 'เดินทาง/มัสยิด/ซัมซัม',
+        title: 'ดุอาอ์เมื่อก้าวออกจากมัสยิด (ก้าวเท้าซ้าย)',
+        when: 'ก้าวเท้าซ้ายเมื่อเดินออกจากมัสยิดอัลฮะรอมและมัสยิดทั่วไป',
+        arabic: 'بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ، اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ',
+        reading: 'บิสมิลลาฮ์ วัศศ่อลาตุ วัสสะลามุ อะลา เราะซูลิลลาฮ์ อัลลอฮุมมะ อินนี อัสอะลุกะ มิน ฟัฎลิก, อัลลอฮุมมะอ์ศิมนี มินัชชัยฏอนิร เราะญีม',
+        meaning: 'ด้วยพระนามของอัลลอฮ์ ขอความจำเริญและสันติจงมีแด่ศาสนทูตของอัลลอฮ์ โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอความโปรดปรานของพระองค์ โอ้อัลลอฮ์ โปรดทรงปกป้องข้าพระองค์จากชัยฏอนที่ถูกสาปแช่งด้วยเถิด',
+        source: 'บันทึกโดย มุสลิม (713) และ อิบนุ มาญะฮ์ (773)'
+      },
+      {
+        id: 30,
+        category: 'travel',
+        categoryLabel: 'เดินทาง/มัสยิด/ซัมซัม',
+        title: 'ดุอาอ์ขณะดื่มน้ำซัมซัม',
+        when: 'ขณะดื่มน้ำซัมซัมหลังละหมาดสุนัตฏอวาฟ 2 ร็อกอะฮ์',
+        arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا وَاسِعًا، وَشِفَاءً مِنْ كُلِّ دَاءٍ',
+        reading: 'อัลลอฮุมมะ อินนี อัสอะลุกะ อิลมัน นาฟิอัน, วะริซก้อน วาซิอัน, วะชิฟาอัน มิน กุลลิ ดาอ์',
+        meaning: 'โอ้อัลลอฮ์ แท้จริงข้าพระองค์ขอต่อพระองค์ซึ่งความรู้ที่ยังประโยชน์ ปัจจัยยังชีพที่กว้างขวาง และการบำบัดรักษาจากโรคภัยทั้งปวง',
+        source: 'รายงานจากท่านอิบนุ อับบาส (บันทึกโดย อัด-ดารอกุฏนีย์) และหะดีษ "น้ำซัมซัมนั้นเป็นไปตามเจตนาของผู้ดื่ม" (บันทึกโดย อิบนุ มาญะฮ์ 3062)'
+      },
+
+      // ==========================================
+      // เพิ่มเติมหมวดดุอาอ์จากอัลกุรอาน (#31 - #40)
+      // ==========================================
+      {
+        id: 31,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ขอการอภัยโทษและความเมตตาอย่างสูงสุด',
+        when: 'บทสั้นกระชับสำหรับอ่านขณะเดินฏอวาฟและสะแอ',
+        arabic: 'رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ',
+        reading: 'ร็อบบิฆฟิร วัรหัม วะอันตะ ค็อยรุร รอหิมีน',
+        meaning: 'โอ้พระผู้อภิบาลของข้าพระองค์ โปรดทรงอภัยโทษและทรงเมตตาด้วยเถิด และพระองค์คือผู้ทรงเมตตาที่ดียิ่งเหนือผู้เมตตาทั้งหลาย',
+        source: 'ซูเราะฮ์ อัล-มุอ์มินูน (23:118)'
+      },
+      {
+        id: 32,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ดุอาอ์ของท่านนบียูนุส (ปลดเปลื้องความทุกข์ยาก)',
+        when: 'อ่านเมื่อเผชิญความคับข้องใจหรือวิงวอนขอให้พ้นจากความทุกข์',
+        arabic: 'لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ',
+        reading: 'ลาอิลาฮะ อิลลา อันตะ ซุบฮานะกะ อินนี กุนตุ มินัซ ซอลิมีน',
+        meaning: 'ไม่มีพระเจ้าอื่นใดนอกจากพระองค์ท่าน มหาบริสุทธิ์แด่พระองค์ แท้จริงข้าพระองค์เคยอยู่ในหมู่ผู้อธรรมต่อตนเอง',
+        source: 'ซูเราะฮ์ อัล-อันบิยาอ์ (21:87)'
+      },
+      {
+        id: 33,
+        category: 'quran',
+        categoryLabel: 'จากอัลกุรอาน',
+        title: 'ดุอาอ์ของท่านนบีมูซา (ขอความดีงามและปัจจัยยังชีพ)',
+        when: 'อ่านเพื่อขอความช่วยเหลือ ปัจจัยยังชีพ และสิ่งดีงามจากอัลลอฮ์',
+        arabic: 'رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ',
+        reading: 'ร็อบบิ อินนี ลิมา อันซัลตะ อิลัยยะ มิน ค็อยริน ฟะกีร',
+        meaning: 'โอ้พระผู้อภิบาลของข้าพระองค์ แท้จริงข้าพระองค์เป็นผู้ขัดสนยิ่งต่อสิ่งดีงามที่พระองค์ทรงประทานลงมาแก่ข้าพระองค์',
+        source: 'ซูเราะฮ์ อัล
